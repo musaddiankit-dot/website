@@ -873,7 +873,7 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
       <ul class="clinks">
         <li><a href="https://calendly.com/musaddiankit/30min" target="_blank"><span class="cico">📅</span>Book a Free 30-min Strategy Call</a></li>
         <li><a href="https://wa.me/918100362690" target="_blank"><span class="cico">💬</span>WhatsApp: +91 81003 62690</a></li>
-        <li><a href="mailto:ankitmusaddi@getledgerflow.com"><span class="cico">✉</span>ankitmusaddi@getledgerflow.com</a></li>
+        <li><a href="/cdn-cgi/l/email-protection#58393633312c352d2b393c3c31183f3d2c343d3c3f3d2a3e34372f763b3735"><span class="cico">✉</span><span class="__cf_email__" data-cfemail="0c6d6267657861797f6d6868654c6b69786069686b697e6a60637b226f6361">[email&#160;protected]</span></a></li>
         <li><a href="https://www.linkedin.com/in/ankit-musaddi-637b943a4" target="_blank"><span class="cico">in</span>LinkedIn — Ankit Musaddi</a></li>
         <li><a href="https://www.youtube.com/@IndusVault" target="_blank"><span class="cico">▶</span>@IndusVault on YouTube</a></li>
       </ul>
@@ -921,7 +921,7 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
     </div>
   </div>
 </div>
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const COLORS={"CFO Insights":"#f0d94a","Automation":"#4ade80","Tools":"#a78bfa","Personal":"#fb923c","Case Study":"#38bdf8"};
 
 const POSTS=[
@@ -1047,11 +1047,28 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
 });
 
 /* FORM */
-function sendMsg(){
-  const n=document.getElementById('fn').value.trim(),e=document.getElementById('fe').value.trim(),m=document.getElementById('fm').value.trim(),btn=document.getElementById('fsb');
+async function sendMsg(){
+  const n=document.getElementById('fn').value.trim(),e=document.getElementById('fe').value.trim(),s=document.getElementById('fs').value.trim(),m=document.getElementById('fm').value.trim(),btn=document.getElementById('fsb');
   if(!n||!e||!m){btn.textContent='Please fill all fields';btn.style.background='#555';setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';},2500);return;}
-  window.location.href=`mailto:ankitmusaddi@getledgerflow.com?subject=${encodeURIComponent(document.getElementById('fs').value||'LedgerFlow Enquiry')}&body=${encodeURIComponent('Name: '+n+'\nEmail: '+e+'\n\n'+m)}`;
-  btn.textContent='Opening email ✓';setTimeout(()=>{btn.textContent='Send Message →';},3000);
+  btn.textContent='Sending...';btn.disabled=true;
+  try{
+    const r=await fetch('https://formspree.io/f/xbdpdapj',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name:n,email:e,subject:s||'LedgerFlow Enquiry',message:m})
+    });
+    if(r.ok){
+      btn.textContent='✅ Message sent!';btn.style.background='#4ade80';
+      document.getElementById('fn').value='';document.getElementById('fe').value='';document.getElementById('fs').value='';document.getElementById('fm').value='';
+      setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false;},4000);
+    } else {
+      btn.textContent='Failed — try WhatsApp';btn.style.background='#f87171';
+      setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false;},3000);
+    }
+  }catch(err){
+    btn.textContent='Failed — try WhatsApp';btn.style.background='#f87171';
+    setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false;},3000);
+  }
 }
 
 /* CHATBOT */
@@ -1107,17 +1124,4 @@ function addMsg(text,type){
   const div=document.createElement('div');
   if(type==='typing'){
     div.className='msg bot typing';
-    div.innerHTML='<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
-  } else {
-    div.className=`msg ${type}`;
-    div.textContent=text;
-  }
-  msgs.appendChild(div);
-  msgs.scrollTop=msgs.scrollHeight;
-  return div;
-}
-
-renderBlog();renderFAQ();observeReveal();
-</script>
-</body>
-</html>
+    div.innerHTML='<div class="tdot"></div><div c
