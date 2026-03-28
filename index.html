@@ -87,7 +87,7 @@ nav.scrolled{background:rgba(6,8,16,.92);backdrop-filter:blur(24px);border-botto
 .bwa:hover{background:rgba(37,211,102,.18);transform:translateY(-2px)}
 
 /* REVEAL */
-.rev{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}.rev.in{opacity:1;transform:none}
+.rev{opacity:1;transform:none;transition:opacity .75s ease,transform .75s ease}.rev.animated{opacity:0;transform:translateY(28px)}.rev.animated.in{opacity:1;transform:none}
 .rev.in{opacity:1;transform:none}
 .d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
 @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
@@ -1022,7 +1022,7 @@ function observeReveal(){
       }
     });
   },{threshold:.07});
-  items.forEach(el=>{el.classList.add('obs');obs.observe(el);});
+  items.forEach(el=>{el.classList.add("obs","animated");obs.observe(el);});
 }
 
 /* SCROLL */
