@@ -4,402 +4,397 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>LedgerFlow — AI-Powered Finance Systems</title>
-<meta name="description" content="LedgerFlow builds intelligent finance automation systems, CFO-as-a-Service for Shopify, n8n workflow automation, and AI-powered financial intelligence. Founded by Ankit Musaddi, CA.">
-<meta name="keywords" content="LedgerFlow, CFO automation, Shopify finance, n8n automation, AI finance, Chartered Accountant India">
+<meta name="description" content="LedgerFlow builds intelligent finance automation systems, CFO-as-a-Service for Shopify, n8n workflow automation, and AI-powered financial intelligence.">
 <meta property="og:title" content="LedgerFlow — AI-Powered Finance Systems">
-<meta property="og:description" content="We build intelligent finance systems that work while you sleep.">
 <meta property="og:url" content="https://getledgerflow.com">
 <link rel="canonical" href="https://getledgerflow.com">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"LedgerFlow","url":"https://getledgerflow.com","founder":{"@type":"Person","name":"Ankit Musaddi","jobTitle":"Chartered Accountant & AI Systems Architect"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#060810;--bg2:#090c18;--bg3:#0d1020;--bg4:#111628;
-  --y:#f0d94a;--y2:#fff59d;--y3:#d4bc00;
-  --yd:rgba(240,217,74,.1);--yb:rgba(240,217,74,.2);
+  --bg:#06080f;--bg2:#09101e;--bg3:#0d1628;
+  --y:#f0d94a;--y2:#fff59d;--y3:#c8b400;
+  --yd:rgba(240,217,74,.1);--yb:rgba(240,217,74,.22);
   --blue:#4f8ef7;--violet:#8b5cf6;
-  --glow-blue:rgba(79,142,247,.15);--glow-violet:rgba(139,92,246,.1);
-  --text:#eeeae0;--dim:#7a7870;--dimmer:#3a3830;
-  --border:rgba(255,255,255,.06);--border2:rgba(255,255,255,.1);
-  --serif:'Syne',system-ui,sans-serif;
-  --sans:'DM Sans',system-ui,sans-serif;
-  --r:8px;
+  --text:#eeeae0;--dim:#7a7870;--border:rgba(255,255,255,.07);
+  --serif:'Syne',sans-serif;--sans:'DM Sans',sans-serif;--r:8px;
 }
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.7;overflow-x:hidden}
 ::selection{background:var(--y);color:#000}
 ::-webkit-scrollbar{width:2px}::-webkit-scrollbar-thumb{background:var(--y3)}
-
-/* NOISE TEXTURE */
 body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;opacity:.018;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-
-/* AMBIENT ORBS */
 .orb{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
-.o1{width:800px;height:800px;top:-300px;right:-200px;background:radial-gradient(circle,rgba(79,142,247,.08),transparent 65%)}
-.o2{width:600px;height:600px;bottom:-200px;left:-200px;background:radial-gradient(circle,rgba(139,92,246,.07),transparent 65%)}
-.o3{width:400px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(240,217,74,.04),transparent 65%)}
-
-/* PROGRESS */
+.o1{width:800px;height:800px;top:-300px;right:-200px;background:radial-gradient(circle,rgba(79,142,247,.07),transparent 65%)}
+.o2{width:600px;height:600px;bottom:-200px;left:-200px;background:radial-gradient(circle,rgba(139,92,246,.06),transparent 65%)}
 #prog{position:fixed;top:0;left:0;height:1.5px;z-index:9999;background:linear-gradient(90deg,var(--blue),var(--y),var(--violet));width:0;transition:width .1s}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:22px 5vw;transition:all .5s}
-nav.scrolled{background:rgba(6,8,16,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:16px 5vw}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:22px 5vw;transition:all .4s}
+nav.scrolled{background:rgba(6,8,15,.93);backdrop-filter:blur(24px);border-bottom:1px solid var(--border);padding:16px 5vw}
 .nl{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nl-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--y),var(--y3));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.85rem;font-weight:800;color:#000;letter-spacing:-.02em}
-.nl-text{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--text);letter-spacing:-.01em}
+.nl-mark{width:32px;height:32px;border-radius:8px;background:linear-gradient(135deg,var(--y),var(--y3));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.8rem;font-weight:800;color:#000}
+.nl-text{font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--text)}
 .nlinks{display:flex;gap:28px;list-style:none}
-.nlinks a{color:var(--dim);text-decoration:none;font-size:.78rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
+.nlinks a{color:var(--dim);text-decoration:none;font-size:.76rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;transition:color .2s}
 .nlinks a:hover{color:var(--text)}
-.ncta{font-size:.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#000;background:var(--y);padding:10px 22px;border-radius:var(--r);text-decoration:none;transition:all .2s;box-shadow:0 4px 20px rgba(240,217,74,.2)}
-.ncta:hover{background:var(--y2);transform:translateY(-1px);box-shadow:0 8px 28px rgba(240,217,74,.3)}
+.ncta{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#000;background:var(--y);padding:10px 22px;border-radius:var(--r);text-decoration:none;transition:all .2s}
+.ncta:hover{background:var(--y2);transform:translateY(-1px)}
 .hbg{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
 .hbg span{display:block;width:20px;height:1.5px;background:var(--text);transition:all .3s}
 .hbg.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
 .hbg.open span:nth-child(2){opacity:0}
 .hbg.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
-.mmenu{display:none;position:fixed;inset:0;background:rgba(6,8,16,.98);z-index:499;flex-direction:column;align-items:center;justify-content:center;gap:36px}
+.mmenu{display:none;position:fixed;inset:0;background:rgba(6,8,15,.98);z-index:499;flex-direction:column;align-items:center;justify-content:center;gap:36px}
 .mmenu.open{display:flex}
 .mmenu a{font-family:var(--serif);font-size:2rem;font-weight:700;color:var(--dim);text-decoration:none;transition:color .2s}
 .mmenu a:hover{color:var(--y)}
 
-/* WHATSAPP */
-.wa{position:fixed;bottom:100px;right:28px;z-index:400;width:52px;height:52px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 8px 28px rgba(37,211,102,.35);transition:all .3s;opacity:0;transform:translateY(20px)}
-.wa.show{opacity:1;transform:translateY(0)}
-.wa:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 12px 36px rgba(37,211,102,.45)}
-.wa svg{width:26px;height:26px;fill:white}
-
-/* BOOK CALL */
-.fbtn{position:fixed;bottom:28px;right:28px;z-index:400;display:flex;align-items:center;gap:8px;background:var(--y);color:#000;font-family:var(--serif);font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 20px;border-radius:30px;text-decoration:none;box-shadow:0 8px 28px rgba(240,217,74,.28);transition:all .3s;opacity:0;transform:translateY(20px)}
-.fbtn.show{opacity:1;transform:translateY(0)}
+/* FLOATING BUTTONS */
+.wa{position:fixed;bottom:100px;right:24px;z-index:400;width:50px;height:50px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,.4);transition:all .3s}
+.wa:hover{transform:translateY(-3px) scale(1.08)}
+.wa svg{width:24px;height:24px;fill:white}
+.fbtn{position:fixed;bottom:28px;right:24px;z-index:400;display:flex;align-items:center;gap:8px;background:var(--y);color:#000;font-family:var(--serif);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:12px 18px;border-radius:30px;text-decoration:none;box-shadow:0 6px 24px rgba(240,217,74,.3);transition:all .3s}
 .fbtn:hover{background:var(--y2);transform:translateY(-3px)}
-.fdot{width:7px;height:7px;border-radius:50%;background:#000;animation:pulse 2s infinite}
+.fdot{width:6px;height:6px;border-radius:50%;background:#000;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.5);opacity:.5}}
 
+/* CHATBOT */
+.chat-widget{position:fixed;bottom:28px;left:24px;z-index:400}
+.chat-btn{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.25rem;box-shadow:0 6px 24px rgba(79,142,247,.35);transition:all .3s}
+.chat-btn:hover{transform:translateY(-3px) scale(1.08)}
+.chat-box{position:absolute;bottom:62px;left:0;width:320px;background:var(--bg2);border:1px solid rgba(255,255,255,.12);border-radius:16px;overflow:hidden;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.6);display:none;z-index:9999}
+.chat-box.open{display:flex}
+.chat-head{background:linear-gradient(135deg,rgba(79,142,247,.12),rgba(139,92,246,.12));border-bottom:1px solid var(--border);padding:14px 16px;display:flex;align-items:center;gap:12px}
+.chat-ava{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0}
+.chat-name{font-family:var(--serif);font-size:.88rem;font-weight:700}
+.chat-status{font-size:.65rem;color:#4ade80}
+.chat-msgs{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;max-height:260px}
+.msg{max-width:86%;font-size:.8rem;line-height:1.55;padding:9px 13px;border-radius:12px}
+.msg.bot{background:rgba(255,255,255,.06);color:var(--text);align-self:flex-start;border-bottom-left-radius:3px}
+.msg.user{background:linear-gradient(135deg,var(--blue),var(--violet));color:white;align-self:flex-end;border-bottom-right-radius:3px}
+.msg.typing{display:flex;gap:4px;padding:14px;align-self:flex-start}
+.tdot{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:bounce .8s infinite}
+.tdot:nth-child(2){animation-delay:.15s}.tdot:nth-child(3){animation-delay:.3s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.chat-input-row{border-top:1px solid var(--border);padding:10px;display:flex;gap:8px;background:rgba(255,255,255,.02)}
+.chat-input-row input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--sans);font-size:.8rem;padding:8px 12px;outline:none}
+.chat-input-row input:focus{border-color:rgba(79,142,247,.5)}
+.chat-send{width:34px;height:34px;background:linear-gradient(135deg,var(--blue),var(--violet));border:none;border-radius:8px;cursor:pointer;color:white;font-size:.9rem;display:flex;align-items:center;justify-content:center}
+
 /* BUTTONS */
-.by{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:var(--y);color:#000;font-family:var(--serif);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;border-radius:var(--r);text-decoration:none;cursor:pointer;transition:all .22s;box-shadow:0 4px 20px rgba(240,217,74,.2)}
-.by:hover{background:var(--y2);transform:translateY(-2px);box-shadow:0 8px 30px rgba(240,217,74,.32)}
-.bg{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;background:rgba(255,255,255,.04);color:var(--text);font-family:var(--serif);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--border2);border-radius:var(--r);text-decoration:none;cursor:pointer;transition:all .22s;backdrop-filter:blur(8px)}
-.bg:hover{border-color:var(--yb);color:var(--y);transform:translateY(-2px);background:rgba(240,217,74,.05)}
-.bwa{display:inline-flex;align-items:center;gap:10px;padding:14px 30px;background:rgba(37,211,102,.1);color:#25d366;font-family:var(--serif);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(37,211,102,.25);border-radius:var(--r);text-decoration:none;cursor:pointer;transition:all .22s}
-.bwa:hover{background:rgba(37,211,102,.18);transform:translateY(-2px)}
+.by{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:var(--y);color:#000;font-family:var(--serif);font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:none;border-radius:var(--r);text-decoration:none;cursor:pointer;transition:all .22s;box-shadow:0 4px 20px rgba(240,217,74,.2)}
+.by:hover{background:var(--y2);transform:translateY(-2px)}
+.bg{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;background:rgba(255,255,255,.04);color:var(--text);font-family:var(--serif);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(255,255,255,.12);border-radius:var(--r);text-decoration:none;cursor:pointer;transition:all .22s}
+.bg:hover{border-color:var(--yb);color:var(--y);transform:translateY(-2px)}
+.bwa{display:inline-flex;align-items:center;gap:10px;padding:13px 28px;background:rgba(37,211,102,.08);color:#25d366;font-family:var(--serif);font-size:.82rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border:1px solid rgba(37,211,102,.22);border-radius:var(--r);text-decoration:none;cursor:pointer;transition:all .22s}
+.bwa:hover{background:rgba(37,211,102,.15);transform:translateY(-2px)}
 
-/* REVEAL */
-.rev{opacity:1;transform:none;transition:opacity .75s ease,transform .75s ease}.rev.animated{opacity:0;transform:translateY(28px)}.rev.animated.in{opacity:1;transform:none}
+/* REVEAL ANIMATIONS */
+.rev{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
 .rev.in{opacity:1;transform:none}
-.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}.d5{transition-delay:.5s}
-@keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
 
-/* SECTION */
-section{padding:110px 5vw;position:relative;z-index:1}
-.ey{display:flex;align-items:center;gap:10px;font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--y);font-weight:700;margin-bottom:18px}
-.ey-l{width:32px;height:1px;background:var(--y);opacity:.6}
-.st{font-family:var(--serif);font-size:clamp(2.2rem,4.5vw,3.5rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:16px}
+/* SECTIONS */
+section{padding:100px 5vw;position:relative;z-index:1}
+.ey{display:flex;align-items:center;gap:10px;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--y);font-weight:700;margin-bottom:18px}
+.ey-l{width:28px;height:1px;background:var(--y);opacity:.7}
+.st{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:14px}
 .st em{font-style:italic;color:var(--y);font-weight:700}
-.sd{color:var(--dim);max-width:520px;line-height:1.82;margin-bottom:60px;font-size:.95rem}
+.sd{color:var(--dim);max-width:520px;line-height:1.82;margin-bottom:56px;font-size:.94rem}
 
 /* HERO */
 .hero{min-height:100vh;padding:180px 5vw 100px;display:flex;align-items:center;overflow:hidden}
 .hgrid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse 70% 60% at 50% 50%,black 10%,transparent 80%);pointer-events:none}
-.horb{position:absolute;top:8%;right:-8%;width:600px;height:600px;border-radius:50%;border:1px solid rgba(79,142,247,.15);animation:spin 80s linear infinite;pointer-events:none}
-.horb::after{content:'';position:absolute;inset:80px;border-radius:50%;border:1px solid rgba(240,217,74,.08)}
-.horb::before{content:'';position:absolute;inset:160px;border-radius:50%;border:1px solid rgba(139,92,246,.06)}
+.horb{position:absolute;top:8%;right:-8%;width:580px;height:580px;border-radius:50%;border:1px solid rgba(79,142,247,.14);animation:spin 80s linear infinite;pointer-events:none}
+.horb::after{content:'';position:absolute;inset:80px;border-radius:50%;border:1px solid rgba(240,217,74,.07)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.hc{position:relative;z-index:1;max-width:920px}
-.hbadge{display:inline-flex;align-items:center;gap:10px;font-size:.68rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--y);background:rgba(240,217,74,.07);border:1px solid var(--yb);padding:8px 18px;border-radius:20px;margin-bottom:36px;animation:up .6s .1s both;backdrop-filter:blur(8px)}
-.bpulse{width:6px;height:6px;border-radius:50%;background:var(--y);box-shadow:0 0 10px var(--y);animation:pulse 2s infinite}
-.hero h1{font-family:var(--serif);font-size:clamp(3.5rem,8vw,7.5rem);line-height:1;font-weight:800;letter-spacing:-.04em;animation:up .9s .2s both}
+.hc{position:relative;z-index:1;max-width:900px}
+.hbadge{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--y);background:rgba(240,217,74,.07);border:1px solid var(--yb);padding:8px 18px;border-radius:20px;margin-bottom:34px;animation:up .6s .1s both}
+.bpulse{width:6px;height:6px;border-radius:50%;background:var(--y);box-shadow:0 0 8px var(--y);animation:pulse 2s infinite}
+.hero h1{font-family:var(--serif);font-size:clamp(3.2rem,8vw,7rem);line-height:1;font-weight:800;letter-spacing:-.04em;animation:up .9s .2s both}
 .hero h1 em{font-style:italic;font-weight:700;background:linear-gradient(135deg,var(--y),var(--y2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .tw-w{display:block;height:1.05em;overflow:hidden}
 #tw{border-right:2px solid var(--y);padding-right:4px}
-.hsub{max-width:580px;margin-top:28px;color:var(--dim);line-height:1.88;font-size:1.05rem;animation:up .9s .4s both}
-.hchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;animation:up .9s .5s both}
-.chip{font-size:.64rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:5px 13px;border-radius:20px}
-.ha{display:flex;gap:12px;margin-top:48px;flex-wrap:wrap;animation:up .9s .6s both}
-.hscroll{position:absolute;bottom:40px;left:5vw;display:flex;align-items:center;gap:10px;font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dimmer);animation:up .9s 1.2s both}
-.hsl{width:32px;height:1px;background:linear-gradient(90deg,var(--y),transparent)}
+.hsub{max-width:560px;margin-top:26px;color:var(--dim);line-height:1.85;font-size:1rem;animation:up .9s .4s both}
+.hchips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;animation:up .9s .5s both}
+.chip{font-size:.63rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:5px 12px;border-radius:20px}
+.ha{display:flex;gap:12px;margin-top:44px;flex-wrap:wrap;animation:up .9s .6s both}
+.hscroll{position:absolute;bottom:38px;left:5vw;display:flex;align-items:center;gap:10px;font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.2);animation:up .9s 1.2s both}
+.hsl{width:30px;height:1px;background:linear-gradient(90deg,var(--y),transparent)}
 
 /* TRUST STRIP */
-.tstrip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(9,12,24,.9);padding:20px 5vw;overflow:hidden;position:relative;z-index:1}
-.ttrack{display:flex;gap:0;animation:scroll 30s linear infinite;width:max-content}
+.tstrip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:rgba(9,12,24,.9);padding:18px 0;overflow:hidden;position:relative;z-index:1}
+.ttrack{display:flex;animation:scroll 30s linear infinite;width:max-content}
 .ttrack:hover{animation-play-state:paused}
-.titem{display:flex;align-items:center;gap:10px;padding:0 48px;border-right:1px solid var(--border);white-space:nowrap}
-.titem:last-child{border-right:none}
-.tico{font-size:1rem}
-.ttxt{font-size:.7rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.titem{display:flex;align-items:center;gap:10px;padding:0 44px;border-right:1px solid var(--border);white-space:nowrap}
+.tico{font-size:.95rem}
+.ttxt{font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
 @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* STATS */
-.sband{background:rgba(9,12,24,.9);padding:56px 5vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
-.stat{text-align:center;padding:0 24px;border-right:1px solid var(--border)}
+.sband{background:rgba(9,12,24,.9);padding:54px 5vw;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));border-top:1px solid var(--border);border-bottom:1px solid var(--border);position:relative;z-index:1}
+.stat{text-align:center;padding:0 20px;border-right:1px solid var(--border)}
 .stat:last-child{border-right:none}
 .sn{font-family:var(--serif);font-size:3rem;font-weight:800;color:var(--y);line-height:1;display:block;letter-spacing:-.03em}
-.sl2{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:8px;display:block}
+.sl2{font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-top:8px;display:block}
 
 /* SERVICES */
-.sv-bg{background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)}
-.svg{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.svc{background:var(--bg2);padding:44px 38px;position:relative;overflow:hidden;transition:background .4s}
+.svg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);border-radius:12px;overflow:hidden}
+.svc{background:var(--bg2);padding:40px 34px;position:relative;overflow:hidden;transition:background .35s}
 .svc::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--y),transparent);transform:scaleX(0);transition:transform .6s;transform-origin:left}
-.svc::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(240,217,74,.03),transparent);opacity:0;transition:opacity .4s}
 .svc:hover{background:#0f1828}
 .svc:hover::before{transform:scaleX(1)}
-.svc:hover::after{opacity:1}
-.svn{font-family:var(--serif);font-size:4rem;color:rgba(255,255,255,.04);line-height:1;margin-bottom:24px;font-weight:800;letter-spacing:-.04em;transition:color .3s}
-.svc:hover .svn{color:rgba(240,217,74,.12)}
-.svt{font-family:var(--serif);font-size:1.45rem;font-weight:700;margin-bottom:14px;line-height:1.2;letter-spacing:-.01em}
-.svd{color:var(--dim);font-size:.87rem;line-height:1.8;margin-bottom:22px}
+.svn{font-family:var(--serif);font-size:3.5rem;color:rgba(255,255,255,.04);line-height:1;margin-bottom:22px;font-weight:800;letter-spacing:-.04em}
+.svt{font-family:var(--serif);font-size:1.38rem;font-weight:700;margin-bottom:13px;line-height:1.2}
+.svd{color:var(--dim);font-size:.85rem;line-height:1.78;margin-bottom:20px}
 .tags{display:flex;flex-wrap:wrap;gap:7px}
-.tag{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--y);background:rgba(240,217,74,.07);border:1px solid var(--yb);padding:4px 10px;border-radius:20px;font-weight:600}
+.tag{font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--y);background:rgba(240,217,74,.07);border:1px solid var(--yb);padding:4px 10px;border-radius:20px;font-weight:600}
 
 /* SYSTEM SHOWCASE */
-.sys-bg{background:var(--bg2)}
-.sysflow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:16px}
-.syss{padding:36px 28px;border-right:1px solid var(--border);position:relative;background:var(--bg2);transition:background .3s}
+.sysflow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-top:14px}
+.syss{padding:32px 24px;border-right:1px solid var(--border);background:var(--bg2);transition:background .28s;position:relative}
 .syss:last-child{border-right:none}
 .syss:hover{background:#0f1828}
-.sysn{font-family:var(--serif);font-size:3rem;color:rgba(255,255,255,.04);line-height:1;display:block;margin-bottom:14px;font-weight:800;transition:color .3s}
-.syss:hover .sysn{color:rgba(79,142,247,.15)}
-.syst{font-weight:600;font-size:.92rem;margin-bottom:8px;color:var(--text);font-family:var(--serif)}
-.sysd{font-size:.8rem;color:var(--dim);line-height:1.68}
-.sysarrow{position:absolute;top:50%;right:-1px;transform:translateY(-50%);width:20px;height:20px;background:var(--bg2);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.6rem;color:var(--y);z-index:2}
-.syss:last-child .sysarrow{display:none}
+.sysn{font-family:var(--serif);font-size:2.8rem;color:rgba(255,255,255,.04);line-height:1;display:block;margin-bottom:12px;font-weight:800}
+.syst{font-weight:700;font-size:.9rem;margin-bottom:7px;font-family:var(--serif)}
+.sysd{font-size:.78rem;color:var(--dim);line-height:1.65}
 
 /* DASHBOARD */
-.dash-bg{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg3) 100%)}
-.dash-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:16px;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 60px rgba(79,142,247,.05)}
-.dash-header{background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);padding:14px 24px;display:flex;align-items:center;justify-content:space-between}
-.dh-left{display:flex;align-items:center;gap:14px}
-.dh-dots{display:flex;gap:6px}
+.dash-wrap{background:var(--bg3);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:14px;box-shadow:0 40px 100px rgba(0,0,0,.5)}
+.dash-hdr{background:rgba(255,255,255,.03);border-bottom:1px solid var(--border);padding:13px 22px;display:flex;align-items:center;justify-content:space-between}
+.ddots{display:flex;gap:6px}
 .dd{width:10px;height:10px;border-radius:50%}
 .dd1{background:#ff5f57}.dd2{background:#ffbd2e}.dd3{background:#28c840}
-.dh-title{font-family:var(--serif);font-size:.82rem;font-weight:700;letter-spacing:.06em;color:var(--dim)}
-.dh-right{display:flex;gap:8px}
-.dtag{font-size:.6rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
-.dtag-live{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
-.dtag-week{background:var(--yd);color:var(--y);border:1px solid var(--yb)}
-.dash-body{padding:24px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.kpi{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:18px}
-.kpi-l{font-size:.62rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:8px}
-.kpi-v{font-family:var(--serif);font-size:1.8rem;font-weight:800;color:var(--text);letter-spacing:-.02em;line-height:1}
-.kpi-d{font-size:.7rem;margin-top:5px;font-weight:500}
+.dtitle{font-family:var(--serif);font-size:.8rem;font-weight:700;color:var(--dim);margin-left:10px}
+.dtags{display:flex;gap:8px}
+.dtag{font-size:.58rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.dt-live{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
+.dt-wk{background:var(--yd);color:var(--y);border:1px solid var(--yb)}
+.dash-kpis{padding:20px 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:16px}
+.kpi-l{font-size:.6rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:7px}
+.kpi-v{font-family:var(--serif);font-size:1.7rem;font-weight:800;color:var(--text);letter-spacing:-.02em;line-height:1}
+.kpi-d{font-size:.68rem;margin-top:5px;font-weight:500}
 .up{color:#4ade80}.dn{color:#f87171}
-.dash-charts{padding:0 24px 24px;display:grid;grid-template-columns:2fr 1fr;gap:14px}
-.chart-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:18px}
-.chart-title{font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:14px}
-.chart-bars{display:flex;align-items:flex-end;gap:6px;height:80px}
-.bar{flex:1;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--blue),rgba(79,142,247,.3));transition:height .5s ease;animation:growBar .8s ease both}
-@keyframes growBar{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
-.bar.y{background:linear-gradient(180deg,var(--y),rgba(240,217,74,.3))}
-.bar.v{background:linear-gradient(180deg,var(--violet),rgba(139,92,246,.3))}
-.chart-labels{display:flex;justify-content:space-between;margin-top:6px}
-.cl{font-size:.58rem;color:var(--dimmer);text-align:center;flex:1}
-.activity{display:flex;flex-direction:column;gap:8px}
-.act{display:flex;align-items:center;gap:10px;padding:10px 12px;background:rgba(255,255,255,.02);border-radius:7px;border:1px solid var(--border)}
-.act-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-.ad-g{background:#4ade80}.ad-y{background:var(--y)}.ad-b{background:var(--blue)}
-.act-text{font-size:.72rem;color:var(--dim);flex:1}
-.act-time{font-size:.63rem;color:var(--dimmer)}
-.dash-footer{padding:16px 24px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
-.df-label{font-size:.65rem;color:var(--dimmer);letter-spacing:.1em;text-transform:uppercase}
-.df-status{display:flex;align-items:center;gap:6px;font-size:.65rem;color:#4ade80;font-weight:600}
-.df-dot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.dash-charts{padding:0 22px 20px;display:grid;grid-template-columns:2fr 1fr;gap:12px}
+.chart-box{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;padding:16px}
+.chart-t{font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:12px}
+.bars{display:flex;align-items:flex-end;gap:5px;height:72px}
+.bar{flex:1;border-radius:3px 3px 0 0}
+.bar-b{background:linear-gradient(180deg,var(--blue),rgba(79,142,247,.25))}
+.bar-y{background:linear-gradient(180deg,var(--y),rgba(240,217,74,.25))}
+.bar-v{background:linear-gradient(180deg,var(--violet),rgba(139,92,246,.25))}
+.blabels{display:flex;justify-content:space-between;margin-top:5px}
+.bl{font-size:.56rem;color:rgba(255,255,255,.2);text-align:center;flex:1}
+.acts{display:flex;flex-direction:column;gap:7px}
+.act{display:flex;align-items:center;gap:9px;padding:9px 11px;background:rgba(255,255,255,.02);border-radius:7px;border:1px solid var(--border)}
+.adot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+.adg{background:#4ade80}.ady{background:var(--y)}.adb{background:var(--blue)}
+.atxt{font-size:.7rem;color:var(--dim);flex:1}
+.atm{font-size:.6rem;color:rgba(255,255,255,.2)}
+.dash-ftr{padding:14px 22px;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.dfl{font-size:.62rem;color:rgba(255,255,255,.2);letter-spacing:.08em;text-transform:uppercase}
+.dfs{display:flex;align-items:center;gap:5px;font-size:.62rem;color:#4ade80;font-weight:600}
+.dfsdot{width:5px;height:5px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
 
 /* PROJECTS */
-.prg{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px}
-.prc{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:all .35s;cursor:default}
-.prc:hover{transform:translateY(-6px);box-shadow:0 24px 60px rgba(0,0,0,.5),0 0 40px rgba(79,142,247,.05);border-color:rgba(79,142,247,.2)}
-.pb{height:170px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
-.pb1{background:linear-gradient(135deg,#080e1c,#0d1830)}
-.pb2{background:linear-gradient(135deg,#090e0a,#0e1a10)}
-.pb3{background:linear-gradient(135deg,#10080a,#1a0d10)}
-.pb4{background:linear-gradient(135deg,#080e10,#0d1820)}
-.bgrd{position:absolute;inset:0;background-image:linear-gradient(rgba(79,142,247,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(79,142,247,.04) 1px,transparent 1px);background-size:32px 32px}
-.bico{font-size:2.8rem;position:relative;z-index:1;filter:drop-shadow(0 0 16px rgba(240,217,74,.2))}
-.pstat{position:absolute;top:12px;right:12px;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
+.prg{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+.prc{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:all .3s}
+.prc:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:rgba(79,142,247,.2)}
+.pb{height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pb1{background:linear-gradient(135deg,#07101c,#0c1830)}
+.pb2{background:linear-gradient(135deg,#080f08,#0d180d)}
+.pb3{background:linear-gradient(135deg,#0f0808,#180d0d)}
+.pb4{background:linear-gradient(135deg,#070f10,#0c1818)}
+.bgrd{position:absolute;inset:0;background-image:linear-gradient(rgba(79,142,247,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(79,142,247,.04) 1px,transparent 1px);background-size:30px 30px}
+.bico{font-size:2.6rem;position:relative;z-index:1;filter:drop-shadow(0 0 14px rgba(240,217,74,.2))}
+.pstat{position:absolute;top:10px;right:10px;font-size:.56rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px}
 .live{background:rgba(74,222,128,.1);color:#4ade80;border:1px solid rgba(74,222,128,.2)}
 .bld{background:rgba(240,217,74,.08);color:var(--y);border:1px solid var(--yb)}
-.prb{padding:26px;flex:1;display:flex;flex-direction:column}
-.pcat{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:8px;font-weight:600}
-.prtl{font-family:var(--serif);font-size:1.35rem;font-weight:700;margin-bottom:10px;line-height:1.2;letter-spacing:-.01em}
-.prd{color:var(--dim);font-size:.84rem;line-height:1.75;flex:1}
-.prst{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border)}
-.pill{font-size:.6rem;font-weight:500;color:var(--dim);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:3px 9px;border-radius:20px}
+.prb{padding:24px;flex:1;display:flex;flex-direction:column}
+.pcat{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim);margin-bottom:7px;font-weight:600}
+.prtl{font-family:var(--serif);font-size:1.28rem;font-weight:700;margin-bottom:9px;line-height:1.2}
+.prd{color:var(--dim);font-size:.83rem;line-height:1.72;flex:1}
+.prst{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px;padding-top:14px;border-top:1px solid var(--border)}
+.pill{font-size:.58rem;color:var(--dim);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:3px 8px;border-radius:20px}
 
-/* WHY SECTION */
-.why-bg{background:var(--bg)}
-.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
-.wc{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:28px;transition:all .3s}
+/* WHY */
+.wgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:14px}
+.wc{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:26px;transition:all .28s}
 .wc:hover{border-color:var(--yb);background:#0f1828;transform:translateY(-3px)}
-.wico{font-size:1.8rem;margin-bottom:14px;display:block}
-.wt{font-family:var(--serif);font-size:1.05rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
-.wd{color:var(--dim);font-size:.83rem;line-height:1.72}
+.wico{font-size:1.7rem;margin-bottom:13px;display:block}
+.wt{font-family:var(--serif);font-size:1rem;font-weight:700;margin-bottom:7px}
+.wd{color:var(--dim);font-size:.82rem;line-height:1.7}
 
 /* BLOG */
-.blg{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
-.bc{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .3s}
-.bc:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.4);border-color:rgba(79,142,247,.2)}
+.blg{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+.bc{background:var(--bg2);border:1px solid var(--border);border-radius:12px;overflow:hidden;cursor:pointer;transition:all .28s}
+.bc:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,.38);border-color:rgba(79,142,247,.2)}
 .bt{height:3px}
-.bb{padding:24px}
-.bm{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.bcat{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;color:#000}
-.bdate{font-size:.68rem;color:var(--dim)}
-.btl{font-family:var(--serif);font-size:1.15rem;font-weight:700;line-height:1.3;margin-bottom:9px;transition:color .2s;letter-spacing:-.01em}
+.bb{padding:22px}
+.bm{display:flex;align-items:center;gap:9px;margin-bottom:11px}
+.bcat{font-size:.57rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:20px;color:#000}
+.bdate{font-size:.67rem;color:var(--dim)}
+.btl{font-family:var(--serif);font-size:1.12rem;font-weight:700;line-height:1.28;margin-bottom:8px;transition:color .2s}
 .bc:hover .btl{color:var(--y)}
-.bex{font-size:.8rem;color:var(--dim);line-height:1.72;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.brd{display:flex;align-items:center;gap:6px;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-top:14px}
-.brd::after{content:'→';transition:transform .2s}
-.bc:hover .brd::after{transform:translateX(5px)}
+.bex{font-size:.78rem;color:var(--dim);line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.brd{display:flex;align-items:center;gap:5px;font-size:.67rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);margin-top:13px}
+.bc:hover .brd::after{content:'→';margin-left:4px}
 
 /* MODAL */
-.mov{display:none;position:fixed;inset:0;background:rgba(6,8,16,.97);z-index:600;overflow-y:auto;padding:60px 5vw;backdrop-filter:blur(16px)}
+.mov{display:none;position:fixed;inset:0;background:rgba(6,8,15,.97);z-index:600;overflow-y:auto;padding:60px 5vw;backdrop-filter:blur(16px)}
 .mov.open{display:block}
-.mc{max-width:740px;margin:0 auto}
-.mcls{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--dim);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:9px 18px;border-radius:var(--r);cursor:pointer;margin-bottom:40px;transition:all .22s}
+.mc{max-width:720px;margin:0 auto}
+.mcls{display:flex;align-items:center;gap:8px;background:none;border:1px solid var(--border);color:var(--dim);font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;padding:8px 16px;border-radius:var(--r);cursor:pointer;margin-bottom:38px;transition:all .2s}
 .mcls:hover{border-color:var(--yb);color:var(--y)}
-.mcat{font-size:.66rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--y);margin-bottom:14px}
-.mtl{font-family:var(--serif);font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;margin-bottom:12px;letter-spacing:-.02em}
-.mdt{font-size:.76rem;color:var(--dim);margin-bottom:30px;padding-bottom:26px;border-bottom:1px solid var(--border)}
-.mbd{color:var(--dim);line-height:1.92;font-size:.93rem}
-.mbd p{margin-bottom:17px}
-.mbd h3{font-family:var(--serif);font-size:1.35rem;color:var(--text);font-weight:700;margin:26px 0 10px;letter-spacing:-.01em}
-.mbd strong{color:var(--text);font-weight:600}
+.mcat{font-size:.65rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--y);margin-bottom:12px}
+.mtl{font-family:var(--serif);font-size:clamp(1.7rem,4vw,2.6rem);font-weight:800;line-height:1.1;margin-bottom:12px}
+.mdt{font-size:.75rem;color:var(--dim);margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--border)}
+.mbd{color:var(--dim);line-height:1.9;font-size:.92rem}
+.mbd p{margin-bottom:16px}
+.mbd h3{font-family:var(--serif);font-size:1.3rem;color:var(--text);font-weight:700;margin:24px 0 9px}
+.mbd strong{color:var(--text)}
 .mbd a{color:var(--y)}
 
-/* CONVERSION BLOCK */
-.conv-bg{background:linear-gradient(135deg,#080c1e,#0a1028);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:100px 5vw;position:relative;overflow:hidden;z-index:1}
-.conv-bg::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:400px;height:1px;background:linear-gradient(90deg,transparent,var(--y),transparent)}
-.conv-bg::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(79,142,247,.04),transparent);pointer-events:none}
-.conv-title{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.5rem);font-weight:800;text-align:center;margin-bottom:14px;letter-spacing:-.03em;position:relative}
-.conv-title em{font-style:italic;color:var(--y)}
-.conv-sub{color:var(--dim);text-align:center;max-width:480px;margin:0 auto 56px;line-height:1.78;position:relative}
-.conv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:900px;margin:0 auto}
-.conv-card{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:32px 28px;text-align:center;transition:all .32s;position:relative}
-.conv-card:hover{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
-.conv-card.wa-card:hover{border-color:rgba(37,211,102,.3);background:rgba(37,211,102,.04)}
-.conv-card.ai-card:hover{border-color:rgba(79,142,247,.3);background:rgba(79,142,247,.04)}
-.conv-card.cal-card:hover{border-color:var(--yb);background:var(--yd)}
-.conv-ico{font-size:2.2rem;margin-bottom:16px;display:block}
-.conv-t{font-family:var(--serif);font-size:1.1rem;font-weight:700;margin-bottom:8px;letter-spacing:-.01em}
-.conv-d{font-size:.82rem;color:var(--dim);line-height:1.68;margin-bottom:20px}
-
-/* ABOUT */
-.abt-bg{background:var(--bg)}
-.al{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
-.at p{color:var(--dim);line-height:1.88;margin-bottom:17px;font-size:.94rem}
-.at p strong{color:var(--text);font-weight:600}
-.pw{width:130px;height:170px;border-radius:10px;overflow:hidden;flex-shrink:0;border:1px solid var(--border2);box-shadow:0 0 40px rgba(79,142,247,.1)}
-.pw img{width:100%;height:100%;object-fit:cover}
-.cl{list-style:none;margin-top:26px}
-.cl li{display:flex;align-items:flex-start;gap:13px;padding:15px 0;border-bottom:1px solid var(--border)}
-.ci{color:var(--y);font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;min-width:36px;background:rgba(240,217,74,.08);padding:3px 6px;border-radius:4px;text-align:center;margin-top:1px;font-family:var(--serif)}
-.cn{font-weight:600;font-size:.88rem;font-family:var(--serif)}
-.cd{color:var(--dim);font-size:.76rem;margin-top:2px}
+/* CONVERSION */
+.conv-bg{background:linear-gradient(135deg,#080c1e,#0a1028);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:96px 5vw;position:relative;overflow:hidden;z-index:1}
+.conv-bg::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 50% 50%,rgba(79,142,247,.04),transparent);pointer-events:none}
+.conv-t{font-family:var(--serif);font-size:clamp(2rem,4.5vw,3.3rem);font-weight:800;text-align:center;margin-bottom:14px;letter-spacing:-.03em}
+.conv-t em{font-style:italic;color:var(--y)}
+.conv-s{color:var(--dim);text-align:center;max-width:460px;margin:0 auto 52px;line-height:1.78}
+.conv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:860px;margin:0 auto}
+.cc{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:12px;padding:30px 26px;text-align:center;transition:all .3s}
+.cc:hover{transform:translateY(-5px)}
+.cc.wa-c:hover{border-color:rgba(37,211,102,.3);background:rgba(37,211,102,.04)}
+.cc.ai-c:hover{border-color:rgba(79,142,247,.3);background:rgba(79,142,247,.04)}
+.cc.cal-c:hover{border-color:var(--yb);background:var(--yd)}
+.cc-ico{font-size:2rem;margin-bottom:14px;display:block}
+.cc-t{font-family:var(--serif);font-size:1.05rem;font-weight:700;margin-bottom:8px}
+.cc-d{font-size:.8rem;color:var(--dim);line-height:1.65;margin-bottom:18px}
 
 /* FAQ */
-.faq-bg{background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%)}
-.flist{max-width:780px}
+.flist{max-width:760px}
 .fi{border-bottom:1px solid var(--border)}
-.fq{width:100%;background:none;border:none;color:var(--text);font-family:var(--serif);font-size:.95rem;font-weight:600;text-align:left;padding:22px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:16px;transition:color .2s;letter-spacing:-.01em}
+.fq{width:100%;background:none;border:none;color:var(--text);font-family:var(--serif);font-size:.93rem;font-weight:600;text-align:left;padding:20px 0;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:14px;transition:color .2s}
 .fq:hover{color:var(--y)}
-.fic{width:24px;height:24px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.78rem;color:var(--y);flex-shrink:0;transition:all .35s}
+.fic{width:22px;height:22px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;color:var(--y);flex-shrink:0;transition:all .32s}
 .fi.open .fic{transform:rotate(45deg);background:var(--yd);border-color:var(--yb)}
 .fa{max-height:0;overflow:hidden;transition:max-height .4s ease}
-.fai{padding:0 0 22px;color:var(--dim);font-size:.87rem;line-height:1.85}
+.fai{padding:0 0 20px;color:var(--dim);font-size:.85rem;line-height:1.82}
+
+/* ABOUT */
+.al{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.at p{color:var(--dim);line-height:1.85;margin-bottom:16px;font-size:.93rem}
+.at p strong{color:var(--text)}
+.pw{width:124px;height:164px;border-radius:10px;overflow:hidden;flex-shrink:0;border:1px solid rgba(255,255,255,.12);box-shadow:0 0 36px rgba(79,142,247,.1)}
+.pw img{width:100%;height:100%;object-fit:cover}
+.cl{list-style:none;margin-top:24px}
+.cl li{display:flex;align-items:flex-start;gap:12px;padding:14px 0;border-bottom:1px solid var(--border)}
+.ci{color:var(--y);font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;min-width:34px;background:rgba(240,217,74,.08);padding:3px 5px;border-radius:4px;text-align:center;margin-top:1px}
+.cn{font-weight:600;font-size:.86rem;font-family:var(--serif)}
+.cd{color:var(--dim);font-size:.75rem;margin-top:2px}
+
+/* PRICING */
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(255px,1fr));gap:18px}
+.pc{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:32px 26px;transition:all .3s;position:relative}
+.pc:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(0,0,0,.4)}
+.pc.feat{border-color:var(--yb);background:linear-gradient(155deg,#0b1524,#101828);box-shadow:0 0 36px rgba(240,217,74,.06)}
+.feat-lbl{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--y3),var(--y));color:#000;font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:10px;white-space:nowrap}
+.pp{font-size:.65rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:10px}
+.pa{font-family:var(--serif);font-size:2.6rem;font-weight:800;letter-spacing:-.03em;line-height:1}
+.pa sup{font-size:.9rem;color:var(--dim);font-weight:400;vertical-align:super}
+.per{font-size:.75rem;color:var(--dim);display:block;margin:5px 0 16px}
+.pdv{height:1px;background:var(--border);margin-bottom:16px}
+.pf{list-style:none;margin-bottom:22px}
+.pf li{font-size:.83rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:9px}
+.pf li::before{content:'✦';color:var(--y);font-size:.5rem;margin-top:6px;flex-shrink:0}
 
 /* CONTACT */
-.cont-bg{background:var(--bg)}
-.contl{display:grid;grid-template-columns:1fr 1.2fr;gap:80px;align-items:start}
-.ci2 p{color:var(--dim);line-height:1.85;margin-bottom:28px;font-size:.94rem}
+.contl{display:grid;grid-template-columns:1fr 1.2fr;gap:72px;align-items:start}
+.ci2 p{color:var(--dim);line-height:1.82;margin-bottom:26px;font-size:.92rem}
 .clinks{list-style:none}
-.clinks li{margin-bottom:12px}
-.clinks a{display:flex;align-items:center;gap:12px;color:var(--dim);text-decoration:none;font-size:.86rem;transition:color .2s}
+.clinks li{margin-bottom:11px}
+.clinks a{display:flex;align-items:center;gap:11px;color:var(--dim);text-decoration:none;font-size:.84rem;transition:color .2s}
 .clinks a:hover{color:var(--y)}
-.cico{width:36px;height:36px;border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.82rem;flex-shrink:0;transition:all .2s;background:rgba(255,255,255,.03)}
+.cico{width:34px;height:34px;border:1px solid var(--border);border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:.8rem;flex-shrink:0;background:rgba(255,255,255,.03);transition:all .2s}
 .clinks a:hover .cico{border-color:var(--yb);background:var(--yd)}
-.cf{display:flex;flex-direction:column;gap:13px}
-.fr{display:grid;grid-template-columns:1fr 1fr;gap:13px}
-.fg{display:flex;flex-direction:column;gap:6px}
-.flb{font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
-.fi2,.fta{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:var(--sans);font-size:.87rem;padding:12px 15px;outline:none;transition:border-color .2s;resize:none}
-.fi2:focus,.fta:focus{border-color:rgba(79,142,247,.4);background:rgba(79,142,247,.03)}
-.fta{min-height:110px}
-.fsub{background:var(--y);color:#000;border:none;border-radius:var(--r);font-family:var(--serif);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:14px 28px;cursor:pointer;transition:all .22s;box-shadow:0 4px 18px rgba(240,217,74,.2)}
-.fsub:hover{background:var(--y2);transform:translateY(-2px);box-shadow:0 8px 28px rgba(240,217,74,.32)}
-
-/* FOOTER */
-footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px;background:var(--bg);position:relative;z-index:1}
-.flo{display:flex;align-items:center;gap:10px}
-.flo-mark{width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,var(--y),var(--y3));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.7rem;font-weight:800;color:#000}
-.flo-text{font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--text)}
-.flc{font-size:.67rem;color:rgba(255,255,255,.18)}
-.fll{display:flex;gap:20px;list-style:none}
-.fll a{font-size:.67rem;color:rgba(255,255,255,.22);text-decoration:none;transition:color .2s}
-.fll a:hover{color:var(--y)}
-
-/* CHATBOT */
-.chat-widget{position:fixed;bottom:28px;left:28px;z-index:400}
-.chat-toggle{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:1.3rem;box-shadow:0 8px 28px rgba(79,142,247,.3);transition:all .3s;opacity:0;transform:translateY(20px)}
-.chat-toggle.show{opacity:1;transform:translateY(0)}
-.chat-toggle:hover{transform:translateY(-3px) scale(1.08);box-shadow:0 12px 36px rgba(79,142,247,.4)}
-.chat-box{position:absolute;bottom:70px;left:0;width:340px;background:var(--bg3);border:1px solid var(--border2);border-radius:16px;overflow:hidden;display:none;flex-direction:column;box-shadow:0 30px 80px rgba(0,0,0,.6)}
-.chat-box.open{display:flex}
-.chat-head{background:linear-gradient(135deg,rgba(79,142,247,.15),rgba(139,92,246,.15));border-bottom:1px solid var(--border);padding:16px 18px;display:flex;align-items:center;gap:12px}
-.chat-ava{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),var(--violet));display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.chat-name{font-family:var(--serif);font-size:.9rem;font-weight:700}
-.chat-status{font-size:.68rem;color:#4ade80;display:flex;align-items:center;gap:4px}
-.chat-status::before{content:'';width:5px;height:5px;border-radius:50%;background:#4ade80}
-.chat-msgs{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;max-height:280px}
-.msg{max-width:85%;font-size:.82rem;line-height:1.55;padding:10px 14px;border-radius:12px}
-.msg.bot{background:rgba(255,255,255,.06);color:var(--text);align-self:flex-start;border-bottom-left-radius:4px}
-.msg.user{background:linear-gradient(135deg,var(--blue),var(--violet));color:white;align-self:flex-end;border-bottom-right-radius:4px}
-.msg.typing{display:flex;gap:4px;padding:14px}
-.tdot{width:6px;height:6px;border-radius:50%;background:var(--dim);animation:bounce .8s infinite}
-.tdot:nth-child(2){animation-delay:.15s}
-.tdot:nth-child(3){animation-delay:.3s}
-@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
-.chat-input{border-top:1px solid var(--border);padding:12px;display:flex;gap:8px;background:rgba(255,255,255,.02)}
-.chat-input input{flex:1;background:rgba(255,255,255,.05);border:1px solid var(--border);border-radius:8px;color:var(--text);font-family:var(--sans);font-size:.82rem;padding:9px 13px;outline:none}
-.chat-input input:focus{border-color:rgba(79,142,247,.4)}
-.chat-send{width:36px;height:36px;background:linear-gradient(135deg,var(--blue),var(--violet));border:none;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:opacity .2s}
-.chat-send:hover{opacity:.85}
+.cf{display:flex;flex-direction:column;gap:12px}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fg{display:flex;flex-direction:column;gap:5px}
+.flb{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);font-weight:700}
+.fi2,.fta{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:var(--r);color:var(--text);font-family:var(--sans);font-size:.85rem;padding:11px 13px;outline:none;transition:border-color .2s;resize:none}
+.fi2:focus,.fta:focus{border-color:rgba(79,142,247,.4)}
+.fta{min-height:108px}
+.fsub{background:var(--y);color:#000;border:none;border-radius:var(--r);font-family:var(--serif);font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:13px 26px;cursor:pointer;transition:all .22s}
+.fsub:hover{background:var(--y2);transform:translateY(-2px)}
 
 /* TOOLS */
-.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:10px;margin-top:14px}
-.tc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:18px 10px;text-align:center;cursor:default;transition:all .25s}
-.tc:hover{border-color:rgba(79,142,247,.3);transform:translateY(-3px);box-shadow:0 10px 26px rgba(0,0,0,.3)}
-.ti{font-size:1.4rem;display:block;margin-bottom:6px;line-height:1}
-.tn{font-size:.6rem;font-weight:600;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+.tg{display:grid;grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:9px;margin-top:12px}
+.tc{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 10px;text-align:center;transition:all .22s}
+.tc:hover{border-color:rgba(79,142,247,.3);transform:translateY(-3px)}
+.ti{font-size:1.3rem;display:block;margin-bottom:6px;line-height:1}
+.tn{font-size:.58rem;font-weight:600;letter-spacing:.08em;color:var(--dim);text-transform:uppercase}
+
+/* FOOTER */
+footer{padding:32px 5vw;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:13px;background:var(--bg);position:relative;z-index:1}
+.flo{display:flex;align-items:center;gap:9px}
+.flo-m{width:24px;height:24px;border-radius:6px;background:linear-gradient(135deg,var(--y),var(--y3));display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:.68rem;font-weight:800;color:#000}
+.flo-t{font-family:var(--serif);font-size:.92rem;font-weight:700}
+.flc{font-size:.65rem;color:rgba(255,255,255,.18)}
+.fll{display:flex;gap:18px;list-style:none}
+.fll a{font-size:.65rem;color:rgba(255,255,255,.2);text-decoration:none;transition:color .2s}
+.fll a:hover{color:var(--y)}
 
 /* RESPONSIVE */
-@media(max-width:1100px){.sysflow{grid-template-columns:repeat(2,1fr)}.syss:nth-child(2){border-right:none}.sysarrow{display:none}}
-@media(max-width:900px){.al,.contl{grid-template-columns:1fr;gap:44px}.dash-body{grid-template-columns:repeat(2,1fr)}.dash-charts{grid-template-columns:1fr}.conv-grid{grid-template-columns:1fr;max-width:400px}.svgrid{grid-template-columns:1fr}}
-@media(max-width:768px){.nlinks,.ncta{display:none}.hbg{display:flex}.sysflow{grid-template-columns:1fr}.syss{border-right:none !important;border-bottom:1px solid var(--border)}.fbtn span{display:none}.fbtn{padding:13px;border-radius:50%}.fr{grid-template-columns:1fr}}
-@media(max-width:480px){.dash-body{grid-template-columns:1fr}.prg,.blg{grid-template-columns:1fr}.tg{grid-template-columns:repeat(3,1fr)}.sband{grid-template-columns:1fr 1fr}.stat{border-right:none;border-bottom:1px solid var(--border);padding:18px}.wgrid{grid-template-columns:1fr}.chat-box{width:290px}}
+@media(max-width:1100px){.sysflow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:900px){.al,.contl{grid-template-columns:1fr;gap:40px}.dash-kpis{grid-template-columns:repeat(2,1fr)}.dash-charts{grid-template-columns:1fr}.conv-grid{grid-template-columns:1fr;max-width:380px}}
+@media(max-width:768px){.nlinks,.ncta{display:none}.hbg{display:flex}.sysflow{grid-template-columns:1fr}.fr{grid-template-columns:1fr}.fbtn span{display:none}.fbtn{padding:12px;border-radius:50%}}
+@media(max-width:480px){.dash-kpis{grid-template-columns:1fr}.prg,.blg{grid-template-columns:1fr}.tg{grid-template-columns:repeat(3,1fr)}.sband{grid-template-columns:1fr 1fr}.stat{border-right:none;border-bottom:1px solid var(--border);padding:16px}.wgrid{grid-template-columns:1fr}.pg{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
+
 <div id="prog"></div>
 <div class="orb o1"></div>
 <div class="orb o2"></div>
-<div class="orb o3"></div>
 
 <!-- WHATSAPP -->
-<a class="wa" id="wa" href="https://wa.me/918100362690?text=Hi%20LedgerFlow!%20I%20found%20you%20online%20and%20would%20like%20to%20know%20more%20about%20your%20services." target="_blank" aria-label="WhatsApp">
-<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+<a class="wa" href="https://wa.me/918100362690?text=Hi%20LedgerFlow!%20I%20found%20you%20online%20and%20would%20like%20to%20know%20more." target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </a>
 
-<!-- FLOATING BOOK CALL -->
-<a class="fbtn" id="fbtn" href="https://calendly.com/musaddiankit/30min" target="_blank">
+<!-- BOOK CALL -->
+<a class="fbtn" href="https://calendly.com/musaddiankit/30min" target="_blank">
   <div class="fdot"></div><span>Book a Call</span>
 </a>
+
+<!-- CHATBOT -->
+<div class="chat-widget">
+  <button class="chat-btn" id="chatBtn" onclick="toggleChat()" title="Ask LedgerFlow AI">🤖</button>
+  <div class="chat-box" id="chatBox">
+    <div class="chat-head">
+      <div class="chat-ava">🤖</div>
+      <div>
+        <div class="chat-name">LedgerFlow AI</div>
+        <div class="chat-status">● Online · Powered by Claude</div>
+      </div>
+    </div>
+    <div class="chat-msgs" id="chatMsgs">
+      <div class="msg bot">Hi! I'm the LedgerFlow AI. Ask me anything about our services, pricing, or whether we're a good fit for you.</div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" id="chatIn" placeholder="Ask anything..." onkeydown="if(event.key==='Enter')sendChat()">
+      <button class="chat-send" onclick="sendChat()">→</button>
+    </div>
+  </div>
+</div>
 
 <!-- MOBILE MENU -->
 <div class="mmenu" id="mmenu">
   <a href="#services" onclick="cm()">Services</a>
-  <a href="#systems" onclick="cm()">Systems</a>
   <a href="#projects" onclick="cm()">Projects</a>
   <a href="#blog" onclick="cm()">Blog</a>
   <a href="#about" onclick="cm()">About</a>
@@ -411,7 +406,6 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
   <a class="nl" href="#"><div class="nl-mark">LF</div><span class="nl-text">LedgerFlow</span></a>
   <ul class="nlinks">
     <li><a href="#services">Services</a></li>
-    <li><a href="#systems">Systems</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#blog">Blog</a></li>
     <li><a href="#about">About</a></li>
@@ -423,28 +417,17 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hgrid"></div>
-  <div class="horb"></div>
+  <div class="hgrid"></div><div class="horb"></div>
   <div class="hc">
     <div class="hbadge"><div class="bpulse"></div>AI-Powered Finance Systems · Open for global clients</div>
-    <h1>
-      <span class="tw-w"><span id="tw">Finance OS.</span></span>
-      <em>Intelligent</em> by design.
-    </h1>
-    <p class="hsub">We architect automated financial intelligence systems — CFO reporting, workflow automation, AI assistants, and self-evolving finance operations — for businesses that need to scale without scaling headcount.</p>
+    <h1><span class="tw-w"><span id="tw">Finance OS.</span></span><em>Intelligent</em> by design.</h1>
+    <p class="hsub">We architect automated financial intelligence — CFO reporting, workflow automation, AI assistants, and self-evolving finance operations for businesses that need to scale without scaling headcount.</p>
     <div class="hchips">
-      <span class="chip">CFO-as-a-Service</span>
-      <span class="chip">n8n Automation</span>
-      <span class="chip">AI Finance Systems</span>
-      <span class="chip">CA Advisory</span>
-      <span class="chip">Shopify Intelligence</span>
+      <span class="chip">CFO-as-a-Service</span><span class="chip">n8n Automation</span><span class="chip">AI Finance</span><span class="chip">CA Advisory</span><span class="chip">Shopify Intelligence</span>
     </div>
     <div class="ha">
       <a class="by" href="https://calendly.com/musaddiankit/30min" target="_blank">Book Strategy Call</a>
-      <a class="bwa" href="https://wa.me/918100362690?text=Hi%20LedgerFlow!%20I%20found%20you%20online%20and%20would%20like%20to%20know%20more." target="_blank">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#25d366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
-        Chat on WhatsApp
-      </a>
+      <a class="bwa" href="https://wa.me/918100362690?text=Hi%20LedgerFlow!" target="_blank">💬 Chat on WhatsApp</a>
       <a class="bg" href="#services">Explore Services</a>
     </div>
   </div>
@@ -453,7 +436,7 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 
 <!-- TRUST STRIP -->
 <div class="tstrip">
-  <div class="ttrack" id="ttrack">
+  <div class="ttrack">
     <div class="titem"><span class="tico">⚡</span><span class="ttxt">Automated Bookkeeping</span></div>
     <div class="titem"><span class="tico">🧠</span><span class="ttxt">AI Finance Assistant</span></div>
     <div class="titem"><span class="tico">📊</span><span class="ttxt">CFO-as-a-Service</span></div>
@@ -484,154 +467,74 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 </div>
 
 <!-- SERVICES -->
-<section class="sv-bg" id="services">
+<section style="background:linear-gradient(180deg,var(--bg) 0%,var(--bg2) 100%)" id="services">
   <div class="ey rev"><div class="ey-l"></div>What LedgerFlow builds</div>
   <h2 class="st rev">Intelligent systems for <em>every layer</em> of your finance stack</h2>
-  <p class="sd rev">From automated CFO reporting to AI chatbots — we build the systems that run your finance operations on autopilot.</p>
+  <p class="sd rev">From automated CFO reporting to AI chatbots — we build systems that run your finance operations on autopilot.</p>
   <div class="svg">
-    <div class="svc rev">
-      <div class="svn">01</div>
-      <h3 class="svt">CFO-as-a-Service<br>for Shopify</h3>
-      <p class="svd">Automated weekly P&amp;L, cash flow forecasting, ad spend vs profit tracking, inventory cost monitoring — delivered to your inbox every Monday. No spreadsheets. No manual exports. Pure financial clarity.</p>
-      <div class="tags"><span class="tag">Weekly P&amp;L</span><span class="tag">Cash Flow</span><span class="tag">Ad Tracking</span><span class="tag">Shopify API</span></div>
-    </div>
-    <div class="svc rev d1">
-      <div class="svn">02</div>
-      <h3 class="svt">n8n Workflow<br>Automation</h3>
-      <p class="svd">Custom pipelines that eliminate every repetitive manual task in your business. Lead capture, invoice processing, data reporting, notifications — fully automated with zero code on your side.</p>
-      <div class="tags"><span class="tag">n8n Pipelines</span><span class="tag">API Integrations</span><span class="tag">No-Code</span><span class="tag">Webhooks</span></div>
-    </div>
-    <div class="svc rev d2">
-      <div class="svn">03</div>
-      <h3 class="svt">AI Audio Chatbot<br>Development</h3>
-      <p class="svd">Intelligent voice and text AI assistants for customer support, lead qualification, and internal operations. Built on LLMs, deployed to your website, WhatsApp, or Telegram in days.</p>
-      <div class="tags"><span class="tag">LLM Powered</span><span class="tag">Voice AI</span><span class="tag">WhatsApp</span><span class="tag">Lead Qualify</span></div>
-    </div>
-    <div class="svc rev">
-      <div class="svn">04</div>
-      <h3 class="svt">Finance Process<br>Automation</h3>
-      <p class="svd">Automated invoicing, GST filing prep, bank reconciliation, payroll data flows, and financial reporting — turning your back-office into a self-operating system that runs without you.</p>
-      <div class="tags"><span class="tag">GST Automation</span><span class="tag">Invoicing</span><span class="tag">Reconciliation</span><span class="tag">Reporting</span></div>
-    </div>
-    <div class="svc rev d1">
-      <div class="svn">05</div>
-      <h3 class="svt">CA &amp; QBO<br>Advisory</h3>
-      <p class="svd">Professional CA services backed by a decade of real-world business operations. Cloud accounting, GST compliance, financial planning — QBO ProAdvisor certified for global clients.</p>
-      <div class="tags"><span class="tag">CA Services</span><span class="tag">QBO Certified</span><span class="tag">GST</span><span class="tag">Planning</span></div>
-    </div>
-    <div class="svc rev d2">
-      <div class="svn">06</div>
-      <h3 class="svt">AI Content<br>Systems</h3>
-      <p class="svd">End-to-end automated content pipelines — AI script generation, voice synthesis, visual rendering, approval workflows, and auto-publishing. As demonstrated live by IndusVault on YouTube.</p>
-      <div class="tags"><span class="tag">AI Scripts</span><span class="tag">Auto-Publish</span><span class="tag">YouTube API</span><span class="tag">n8n</span></div>
-    </div>
+    <div class="svc rev"><div class="svn">01</div><h3 class="svt">CFO-as-a-Service for Shopify</h3><p class="svd">Automated weekly P&amp;L, cash flow forecasting, ad spend vs profit tracking — delivered every Monday. No spreadsheets. Pure financial clarity.</p><div class="tags"><span class="tag">Weekly P&amp;L</span><span class="tag">Cash Flow</span><span class="tag">Shopify API</span></div></div>
+    <div class="svc rev d1"><div class="svn">02</div><h3 class="svt">n8n Workflow Automation</h3><p class="svd">Custom pipelines eliminating repetitive manual tasks. Lead capture, invoice processing, reporting — fully automated with zero code on your side.</p><div class="tags"><span class="tag">n8n Pipelines</span><span class="tag">API Integrations</span><span class="tag">No-Code</span></div></div>
+    <div class="svc rev d2"><div class="svn">03</div><h3 class="svt">AI Audio Chatbot Development</h3><p class="svd">Intelligent voice and text AI assistants for customer support, lead qualification, and operations. Deployed to your website, WhatsApp, or Telegram.</p><div class="tags"><span class="tag">LLM Powered</span><span class="tag">Voice AI</span><span class="tag">WhatsApp</span></div></div>
+    <div class="svc rev"><div class="svn">04</div><h3 class="svt">Finance Process Automation</h3><p class="svd">Automated invoicing, GST prep, bank reconciliation, payroll data flows — turning your back-office into a self-operating system.</p><div class="tags"><span class="tag">GST</span><span class="tag">Invoicing</span><span class="tag">Reconciliation</span></div></div>
+    <div class="svc rev d1"><div class="svn">05</div><h3 class="svt">CA &amp; QBO Advisory</h3><p class="svd">Professional CA services backed by a decade of real business operations. Cloud accounting, GST compliance, financial planning — QBO ProAdvisor certified.</p><div class="tags"><span class="tag">CA Services</span><span class="tag">QBO Certified</span><span class="tag">GST</span></div></div>
+    <div class="svc rev d2"><div class="svn">06</div><h3 class="svt">AI Content Systems</h3><p class="svd">End-to-end automated content pipelines — AI scripts, voice synthesis, visual rendering, approval workflows, and auto-publishing. Live at IndusVault.</p><div class="tags"><span class="tag">AI Scripts</span><span class="tag">Auto-Publish</span><span class="tag">YouTube API</span></div></div>
   </div>
 </section>
 
 <!-- SYSTEM SHOWCASE -->
-<section class="sys-bg" id="systems">
+<section style="background:var(--bg2)" id="systems">
   <div class="ey rev"><div class="ey-l"></div>How our systems think</div>
   <h2 class="st rev">Built like a <em>product</em>, delivered like a service</h2>
-  <p class="sd rev">Every LedgerFlow engagement follows the same architecture — intelligent input processing, smart routing, and automated output delivery.</p>
+  <p class="sd rev">Every LedgerFlow engagement follows the same architecture — intelligent input, smart routing, human approval, automated delivery.</p>
   <div class="sysflow">
-    <div class="syss rev">
-      <span class="sysn">01</span>
-      <div class="syst">Data Input</div>
-      <p class="sysd">Your Shopify store, bank feeds, invoices, and business data flows in automatically — no manual exports, no CSV uploads.</p>
-      <div class="sysarrow">→</div>
-    </div>
-    <div class="syss rev d1">
-      <span class="sysn">02</span>
-      <div class="syst">AI Processing</div>
-      <p class="sysd">Claude and GPT-4o analyse, categorise, and extract intelligence from your raw data — identifying patterns, anomalies, and opportunities.</p>
-      <div class="sysarrow">→</div>
-    </div>
-    <div class="syss rev d2">
-      <span class="sysn">03</span>
-      <div class="syst">Human Approval</div>
-      <p class="sysd">Every output passes through a Telegram approval layer — you review, approve, or reject in one tap. Quality control stays human.</p>
-      <div class="sysarrow">→</div>
-    </div>
-    <div class="syss rev d3">
-      <span class="sysn">04</span>
-      <div class="syst">Automated Delivery</div>
-      <p class="sysd">Reports to email, posts to LinkedIn, videos to YouTube, updates to your website — all delivered automatically on approval.</p>
-    </div>
+    <div class="syss rev"><span class="sysn">01</span><div class="syst">Data Input</div><p class="sysd">Your Shopify store, bank feeds, invoices flow in automatically — no manual exports, no CSV uploads ever.</p></div>
+    <div class="syss rev d1"><span class="sysn">02</span><div class="syst">AI Processing</div><p class="sysd">Claude and GPT-4o analyse, categorise, and extract intelligence — identifying patterns, anomalies, opportunities.</p></div>
+    <div class="syss rev d2"><span class="sysn">03</span><div class="syst">Human Approval</div><p class="sysd">Every output passes through Telegram approval — you review and approve in one tap. Quality stays human.</p></div>
+    <div class="syss rev d3"><span class="sysn">04</span><div class="syst">Automated Delivery</div><p class="sysd">Reports to email, posts to LinkedIn, videos to YouTube — all delivered automatically on approval.</p></div>
   </div>
 </section>
 
-<!-- DASHBOARD PREVIEW -->
-<section class="dash-bg">
+<!-- DASHBOARD -->
+<section style="background:linear-gradient(180deg,var(--bg2) 0%,var(--bg3) 100%)">
   <div class="ey rev"><div class="ey-l"></div>CFO Dashboard preview</div>
   <h2 class="st rev">This is what your <em>Monday morning</em> looks like</h2>
-  <p class="sd rev">Every Shopify CFO client receives an automated report like this — before they've had their first coffee. Real data, zero manual work.</p>
+  <p class="sd rev">Every Shopify CFO client receives this automated report — before their first coffee. Real data, zero manual work.</p>
   <div class="dash-wrap rev">
-    <div class="dash-header">
-      <div class="dh-left">
-        <div class="dh-dots"><div class="dd dd1"></div><div class="dd dd2"></div><div class="dd dd3"></div></div>
-        <span class="dh-title">LedgerFlow CFO Dashboard — Week 12, 2026</span>
-      </div>
-      <div class="dh-right">
-        <span class="dtag dtag-live">● Live</span>
-        <span class="dtag dtag-week">This Week</span>
-      </div>
+    <div class="dash-hdr">
+      <div style="display:flex;align-items:center"><div class="ddots"><div class="dd dd1"></div><div class="dd dd2"></div><div class="dd dd3"></div></div><span class="dtitle">LedgerFlow CFO Dashboard — Week 12, 2026</span></div>
+      <div class="dtags"><span class="dtag dt-live">● Live</span><span class="dtag dt-wk">This Week</span></div>
     </div>
-    <div class="dash-body">
-      <div class="kpi">
-        <div class="kpi-l">Net Revenue</div>
-        <div class="kpi-v">4,320</div>
-        <div class="kpi-d up">▲ 12.4% vs last week</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-l">Gross Margin</div>
-        <div class="kpi-v">38.2%</div>
-        <div class="kpi-d up">▲ 2.1% improvement</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-l">Ad Spend ROAS</div>
-        <div class="kpi-v">3.8x</div>
-        <div class="kpi-d dn">▼ 0.4x vs target</div>
-      </div>
-      <div class="kpi">
-        <div class="kpi-l">Cash Flow (4wk)</div>
-        <div class="kpi-v">+1k</div>
-        <div class="kpi-d up">▲ Positive outlook</div>
-      </div>
+    <div class="dash-kpis">
+      <div class="kpi"><div class="kpi-l">Net Revenue</div><div class="kpi-v">$84,320</div><div class="kpi-d up">▲ 12.4% vs last week</div></div>
+      <div class="kpi"><div class="kpi-l">Gross Margin</div><div class="kpi-v">38.2%</div><div class="kpi-d up">▲ 2.1% improvement</div></div>
+      <div class="kpi"><div class="kpi-l">Ad Spend ROAS</div><div class="kpi-v">3.8x</div><div class="kpi-d dn">▼ 0.4x vs target</div></div>
+      <div class="kpi"><div class="kpi-l">Cash Flow (4wk)</div><div class="kpi-v">+$31k</div><div class="kpi-d up">▲ Positive outlook</div></div>
     </div>
     <div class="dash-charts">
       <div class="chart-box">
-        <div class="chart-title">Weekly Revenue Trend</div>
-        <div class="chart-bars">
-          <div class="bar" style="height:55%"></div>
-          <div class="bar y" style="height:68%"></div>
-          <div class="bar" style="height:62%"></div>
-          <div class="bar" style="height:78%"></div>
-          <div class="bar y" style="height:71%"></div>
-          <div class="bar" style="height:85%"></div>
-          <div class="bar v" style="height:92%"></div>
-          <div class="bar" style="height:88%"></div>
-          <div class="bar y" style="height:95%"></div>
-          <div class="bar" style="height:100%"></div>
+        <div class="chart-t">Weekly Revenue Trend</div>
+        <div class="bars">
+          <div class="bar bar-b" style="height:55%"></div><div class="bar bar-y" style="height:68%"></div>
+          <div class="bar bar-b" style="height:62%"></div><div class="bar bar-b" style="height:78%"></div>
+          <div class="bar bar-y" style="height:71%"></div><div class="bar bar-b" style="height:85%"></div>
+          <div class="bar bar-v" style="height:92%"></div><div class="bar bar-b" style="height:88%"></div>
+          <div class="bar bar-y" style="height:95%"></div><div class="bar bar-b" style="height:100%"></div>
         </div>
-        <div class="chart-labels">
-          <span class="cl">W3</span><span class="cl">W4</span><span class="cl">W5</span>
-          <span class="cl">W6</span><span class="cl">W7</span><span class="cl">W8</span>
-          <span class="cl">W9</span><span class="cl">W10</span><span class="cl">W11</span><span class="cl">W12</span>
-        </div>
+        <div class="blabels"><span class="bl">W3</span><span class="bl">W4</span><span class="bl">W5</span><span class="bl">W6</span><span class="bl">W7</span><span class="bl">W8</span><span class="bl">W9</span><span class="bl">W10</span><span class="bl">W11</span><span class="bl">W12</span></div>
       </div>
       <div class="chart-box">
-        <div class="chart-title">Activity Feed</div>
-        <div class="activity">
-          <div class="act"><div class="act-dot ad-g"></div><span class="act-text">P&amp;L report delivered to inbox</span><span class="act-time">9:00 AM</span></div>
-          <div class="act"><div class="act-dot ad-y"></div><span class="act-text">ROAS alert: Meta campaign below threshold</span><span class="act-time">9:02 AM</span></div>
-          <div class="act"><div class="act-dot ad-b"></div><span class="act-text">Cash flow forecast updated</span><span class="act-time">9:05 AM</span></div>
-          <div class="act"><div class="act-dot ad-g"></div><span class="act-text">Inventory cost variance: +2.3%</span><span class="act-time">9:06 AM</span></div>
+        <div class="chart-t">Activity Feed</div>
+        <div class="acts">
+          <div class="act"><div class="adot adg"></div><span class="atxt">P&amp;L report delivered to inbox</span><span class="atm">9:00 AM</span></div>
+          <div class="act"><div class="adot ady"></div><span class="atxt">ROAS alert: Meta campaign below threshold</span><span class="atm">9:02 AM</span></div>
+          <div class="act"><div class="adot adb"></div><span class="atxt">Cash flow forecast updated</span><span class="atm">9:05 AM</span></div>
+          <div class="act"><div class="adot adg"></div><span class="atxt">Inventory cost variance: +2.3%</span><span class="atm">9:06 AM</span></div>
         </div>
       </div>
     </div>
-    <div class="dash-footer">
-      <span class="df-label">Powered by LedgerFlow Automation · getledgerflow.com</span>
-      <span class="df-status"><div class="df-dot"></div>All systems operational</span>
+    <div class="dash-ftr">
+      <span class="dfl">Powered by LedgerFlow · getledgerflow.com</span>
+      <span class="dfs"><div class="dfsdot"></div>All systems operational</span>
     </div>
   </div>
 </section>
@@ -640,64 +543,32 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 <section style="background:var(--bg)" id="projects">
   <div class="ey rev"><div class="ey-l"></div>Live systems</div>
   <h2 class="st rev">Built, deployed, <em>running in production</em></h2>
-  <p class="sd rev">Everything below is operational. These aren't demos — they're live, automated systems generating real output daily.</p>
-  <div class="prg" id="projectsGrid">
-    <div class="prc rev">
-      <div class="pb pb1"><div class="bgrd"></div><span class="bico">🎬</span><span class="pstat live">Live</span></div>
-      <div class="prb">
-        <div class="pcat">AI Content Factory</div>
-        <h3 class="prtl">IndusVault</h3>
-        <p class="prd">Fully automated Hindi mystery &amp; history YouTube Shorts factory. Script → voiceover → cinematic render → Telegram approval → YouTube upload. Zero manual steps. Running daily at @IndusVault.</p>
-        <div class="prst"><span class="pill">n8n</span><span class="pill">FFmpeg</span><span class="pill">ElevenLabs</span><span class="pill">Stability AI</span><span class="pill">GPT-4o</span><span class="pill">YouTube API</span></div>
-      </div>
-    </div>
-    <div class="prc rev d1">
-      <div class="pb pb2"><div class="bgrd"></div><span class="bico">📊</span><span class="pstat bld">Building</span></div>
-      <div class="prb">
-        <div class="pcat">FinTech Automation</div>
-        <h3 class="prtl">AI CFO for Shopify</h3>
-        <p class="prd">n8n-powered financial intelligence for Shopify store owners. Automated weekly P&amp;L, cash flow forecasting, ad spend analysis — delivered every Monday morning automatically.</p>
-        <div class="prst"><span class="pill">n8n</span><span class="pill">Shopify API</span><span class="pill">Google Sheets</span><span class="pill">Gmail API</span><span class="pill">Claude AI</span></div>
-      </div>
-    </div>
-    <div class="prc rev d2">
-      <div class="pb pb3"><div class="bgrd"></div><span class="bico">🤖</span><span class="pstat bld">Building</span></div>
-      <div class="prb">
-        <div class="pcat">Conversational AI</div>
-        <h3 class="prtl">LedgerFlow AI Assistant</h3>
-        <p class="prd">Voice + text AI assistant for finance queries, lead qualification, and appointment booking. Deployable on websites, WhatsApp, and Telegram with full session memory.</p>
-        <div class="prst"><span class="pill">Claude AI</span><span class="pill">Voice AI</span><span class="pill">n8n</span><span class="pill">WhatsApp API</span><span class="pill">Telegram</span></div>
-      </div>
-    </div>
-    <div class="prc rev d3">
-      <div class="pb pb4"><div class="bgrd"></div><span class="bico">💰</span><span class="pstat bld">Building</span></div>
-      <div class="prb">
-        <div class="pcat">Finance OS</div>
-        <h3 class="prtl">Automated Finance Back-Office</h3>
-        <p class="prd">GST filing prep, bank reconciliation, invoice generation, payroll data flows, and multi-entity reporting — a complete self-operating financial back-office for Indian SMEs going global.</p>
-        <div class="prst"><span class="pill">n8n</span><span class="pill">GST APIs</span><span class="pill">QuickBooks</span><span class="pill">Google Sheets</span><span class="pill">Claude AI</span></div>
-      </div>
-    </div>
+  <p class="sd rev">Everything below is operational — live, automated systems generating real output daily.</p>
+  <div class="prg">
+    <div class="prc rev"><div class="pb pb1"><div class="bgrd"></div><span class="bico">🎬</span><span class="pstat live">Live</span></div><div class="prb"><div class="pcat">AI Content Factory</div><h3 class="prtl">IndusVault</h3><p class="prd">Fully automated Hindi mystery YouTube Shorts factory. Script → voiceover → render → Telegram approval → YouTube upload. Zero manual steps. Running daily at @IndusVault.</p><div class="prst"><span class="pill">n8n</span><span class="pill">FFmpeg</span><span class="pill">ElevenLabs</span><span class="pill">GPT-4o</span><span class="pill">YouTube API</span></div></div></div>
+    <div class="prc rev d1"><div class="pb pb2"><div class="bgrd"></div><span class="bico">📊</span><span class="pstat bld">Building</span></div><div class="prb"><div class="pcat">FinTech Automation</div><h3 class="prtl">AI CFO for Shopify</h3><p class="prd">n8n-powered financial intelligence. Automated weekly P&amp;L, cash flow forecasting, ad spend analysis — delivered every Monday automatically.</p><div class="prst"><span class="pill">n8n</span><span class="pill">Shopify API</span><span class="pill">Google Sheets</span><span class="pill">Claude AI</span></div></div></div>
+    <div class="prc rev d2"><div class="pb pb3"><div class="bgrd"></div><span class="bico">🤖</span><span class="pstat bld">Building</span></div><div class="prb"><div class="pcat">Conversational AI</div><h3 class="prtl">LedgerFlow AI Assistant</h3><p class="prd">Voice + text AI for finance queries, lead qualification, and booking. Deployable on websites, WhatsApp, and Telegram with full session memory.</p><div class="prst"><span class="pill">Claude AI</span><span class="pill">Voice AI</span><span class="pill">n8n</span><span class="pill">WhatsApp API</span></div></div></div>
+    <div class="prc rev d3"><div class="pb pb4"><div class="bgrd"></div><span class="bico">💰</span><span class="pstat bld">Building</span></div><div class="prb"><div class="pcat">Finance OS</div><h3 class="prtl">Automated Finance Back-Office</h3><p class="prd">GST prep, bank reconciliation, invoice generation, payroll flows — a complete self-operating financial back-office for SMEs going global.</p><div class="prst"><span class="pill">n8n</span><span class="pill">GST APIs</span><span class="pill">QuickBooks</span><span class="pill">Claude AI</span></div></div></div>
   </div>
 </section>
 
-<!-- WHY LEDGERFLOW -->
-<section class="why-bg">
+<!-- WHY -->
+<section style="background:var(--bg2)">
   <div class="ey rev"><div class="ey-l"></div>Why clients choose us</div>
   <h2 class="st rev">The rare combination that <em>actually matters</em></h2>
   <p class="sd rev">Most automation agencies don't understand finance. Most accountants can't build systems. LedgerFlow sits at the intersection of both.</p>
   <div class="wgrid">
-    <div class="wc rev"><span class="wico">🏦</span><div class="wt">Finance-first thinking</div><p class="wd">Built by a Chartered Accountant with a decade of real business operations. We understand the numbers before we automate them.</p></div>
-    <div class="wc rev d1"><span class="wico">⚙️</span><div class="wt">Systems architecture mindset</div><p class="wd">We don't just automate tasks — we design systems. Every workflow is built for reliability, scalability, and zero maintenance from your side.</p></div>
-    <div class="wc rev d2"><span class="wico">🔍</span><div class="wt">Human-in-the-loop quality</div><p class="wd">Every automated output passes through a Telegram approval layer. You stay in control without doing the work. Quality is never sacrificed for speed.</p></div>
-    <div class="wc rev d3"><span class="wico">🌍</span><div class="wt">Built for global clients</div><p class="wd">Serving clients in the US, UK, Canada, and Australia remotely. Pricing in USD. Communication in English. Timezone-aware delivery every time.</p></div>
-    <div class="wc rev"><span class="wico">📦</span><div class="wt">Practical implementation</div><p class="wd">No overengineered solutions. We build the minimum viable system that solves your specific problem — then improve it based on real-world usage.</p></div>
-    <div class="wc rev d1"><span class="wico">🔄</span><div class="wt">Self-evolving systems</div><p class="wd">Our systems learn from output. Every new project auto-documents itself, updates your portfolio, and generates its own marketing content.</p></div>
+    <div class="wc rev"><span class="wico">🏦</span><div class="wt">Finance-first thinking</div><p class="wd">Built by a CA with a decade of real business operations. We understand the numbers before we automate them.</p></div>
+    <div class="wc rev d1"><span class="wico">⚙️</span><div class="wt">Systems architecture mindset</div><p class="wd">We don't just automate tasks — we design systems built for reliability, scalability, and zero maintenance from your side.</p></div>
+    <div class="wc rev d2"><span class="wico">🔍</span><div class="wt">Human-in-the-loop quality</div><p class="wd">Every automated output passes through a Telegram approval layer. Quality is never sacrificed for speed.</p></div>
+    <div class="wc rev d3"><span class="wico">🌍</span><div class="wt">Built for global clients</div><p class="wd">Serving US, UK, Canada, Australia. Pricing in USD. Communication in English. Timezone-aware delivery every time.</p></div>
+    <div class="wc rev"><span class="wico">📦</span><div class="wt">Practical implementation</div><p class="wd">No overengineered solutions. The minimum viable system that solves your specific problem — then improved based on usage.</p></div>
+    <div class="wc rev d1"><span class="wico">🔄</span><div class="wt">Self-evolving systems</div><p class="wd">Every new project auto-documents itself, updates your portfolio, and generates its own marketing content automatically.</p></div>
   </div>
 </section>
 
 <!-- TOOLS -->
-<section style="background:var(--bg2)">
+<section style="background:var(--bg)">
   <div class="ey rev"><div class="ey-l"></div>Production stack</div>
   <h2 class="st rev">Tools running in <em>live systems</em> today</h2>
   <div class="tg">
@@ -740,25 +611,25 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 
 <!-- CONVERSION BLOCK -->
 <div class="conv-bg">
-  <h2 class="conv-title rev">Three ways to start a <em>conversation</em></h2>
-  <p class="conv-sub rev">Choose the path that feels most natural. Every conversation is handled personally by Ankit.</p>
+  <h2 class="conv-t rev">Three ways to start a <em>conversation</em></h2>
+  <p class="conv-s rev">Choose the path that feels natural. Every conversation is handled personally by Ankit.</p>
   <div class="conv-grid rev">
-    <div class="conv-card wa-card">
-      <span class="conv-ico">💬</span>
-      <div class="conv-t">Chat on WhatsApp</div>
-      <p class="conv-d">Fastest path. Message directly, get a response within hours. Best for quick questions and initial scoping.</p>
-      <a class="bwa" href="https://wa.me/918100362690?text=Hi%20LedgerFlow!%20I%20found%20you%20online." target="_blank" style="justify-content:center">Start WhatsApp Chat</a>
+    <div class="cc wa-c">
+      <span class="cc-ico">💬</span>
+      <div class="cc-t">Chat on WhatsApp</div>
+      <p class="cc-d">Fastest path. Message directly, get a response within hours. Best for quick questions and scoping.</p>
+      <a class="bwa" href="https://wa.me/918100362690?text=Hi%20LedgerFlow!" target="_blank" style="justify-content:center">Start WhatsApp Chat</a>
     </div>
-    <div class="conv-card ai-card">
-      <span class="conv-ico">🤖</span>
-      <div class="conv-t">Ask the AI Assistant</div>
-      <p class="conv-d">Get instant answers about services, pricing, and fit. Our AI assistant is trained on everything LedgerFlow.</p>
-      <button class="bg" style="width:100%;justify-content:center" onclick="openChat()">Open AI Assistant</button>
+    <div class="cc ai-c">
+      <span class="cc-ico">🤖</span>
+      <div class="cc-t">Ask the AI Assistant</div>
+      <p class="cc-d">Get instant answers about services, pricing, and fit. Trained on everything LedgerFlow.</p>
+      <button class="bg" style="width:100%;justify-content:center;cursor:pointer" onclick="openChat()">Open AI Assistant</button>
     </div>
-    <div class="conv-card cal-card">
-      <span class="conv-ico">📅</span>
-      <div class="conv-t">Book a Strategy Call</div>
-      <p class="conv-d">30 minutes. Understand your needs, map a solution, define scope. For serious buyers ready to move forward.</p>
+    <div class="cc cal-c">
+      <span class="cc-ico">📅</span>
+      <div class="cc-t">Book a Strategy Call</div>
+      <p class="cc-d">30 minutes. Understand your needs, map a solution, define scope. For serious buyers ready to move forward.</p>
       <a class="by" href="https://calendly.com/musaddiankit/30min" target="_blank" style="justify-content:center">Book Free Call</a>
     </div>
   </div>
@@ -768,83 +639,53 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 <section style="background:var(--bg3)" id="pricing">
   <div class="ey rev"><div class="ey-l"></div>CFO Service Pricing</div>
   <h2 class="st rev">Transparent pricing, <em>no surprises</em></h2>
-  <p class="sd rev">One-time setup fee + monthly retainer. Cancel anytime. Custom automation projects — book a call to discuss.</p>
-  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(262px,1fr));gap:20px">
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:34px 28px;transition:all .32s" class="rev">
-      <div style="font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:11px;font-family:var(--serif)">Starter</div>
-      <div style="font-family:var(--serif);font-size:2.8rem;font-weight:800;letter-spacing:-.03em;line-height:1"><sup style="font-size:1rem;color:var(--dim);font-weight:400;vertical-align:super">$</sup>199</div>
-      <span style="font-size:.77rem;color:var(--dim);display:block;margin:5px 0 18px">one-time setup fee</span>
-      <div style="height:1px;background:var(--border);margin-bottom:18px"></div>
-      <ul style="list-style:none;margin-bottom:26px">
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Weekly automated P&amp;L report</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Revenue vs expense breakdown</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Shopify API integration</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Google Sheets dashboard</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Email delivery every Monday</li>
-      </ul>
-      <div style="font-family:var(--serif);font-size:1.55rem;font-weight:800;margin-bottom:16px;letter-spacing:-.02em"><sup style="font-size:.85rem;color:var(--dim);font-weight:400">$</sup>99<span style="font-size:.85rem;color:var(--dim);font-weight:400">/mo</span></div>
+  <p class="sd rev">One-time setup fee + monthly retainer. Cancel anytime. Custom automation projects — book a call.</p>
+  <div class="pg">
+    <div class="pc rev">
+      <div class="pp">Starter</div><div class="pa"><sup>$</sup>199</div><span class="per">one-time setup</span>
+      <div class="pdv"></div>
+      <ul class="pf"><li>Weekly automated P&amp;L</li><li>Revenue vs expense breakdown</li><li>Shopify API integration</li><li>Google Sheets dashboard</li><li>Monday email delivery</li></ul>
+      <div class="pa" style="font-size:1.5rem;margin-bottom:14px"><sup style="font-size:.8rem;color:var(--dim)">$</sup>99<span style="font-size:.8rem;color:var(--dim)">/mo</span></div>
       <a class="by" href="https://calendly.com/musaddiankit/30min" target="_blank" style="width:100%;justify-content:center">Get Started</a>
     </div>
-    <div style="background:linear-gradient(155deg,#0b1524,#101828);border:1px solid rgba(240,217,74,.2);border-radius:12px;padding:34px 28px;position:relative;box-shadow:0 0 40px rgba(240,217,74,.06);transition:all .32s" class="rev d1">
-      <div style="position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:linear-gradient(90deg,var(--y3),var(--y));color:#000;font-size:.6rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 14px;border-radius:10px;white-space:nowrap;font-family:var(--serif)">Most Popular</div>
-      <div style="font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:11px;font-family:var(--serif)">Growth</div>
-      <div style="font-family:var(--serif);font-size:2.8rem;font-weight:800;letter-spacing:-.03em;line-height:1"><sup style="font-size:1rem;color:var(--dim);font-weight:400;vertical-align:super">$</sup>349</div>
-      <span style="font-size:.77rem;color:var(--dim);display:block;margin:5px 0 18px">one-time setup fee</span>
-      <div style="height:1px;background:var(--border);margin-bottom:18px"></div>
-      <ul style="list-style:none;margin-bottom:26px">
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Everything in Starter</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Cash flow forecasting (4-week)</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Ad spend vs profit analysis</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Inventory cost monitoring</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Monthly strategy call (30 min)</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Slack or WhatsApp alerts</li>
-      </ul>
-      <div style="font-family:var(--serif);font-size:1.55rem;font-weight:800;margin-bottom:16px;letter-spacing:-.02em"><sup style="font-size:.85rem;color:var(--dim);font-weight:400">$</sup>199<span style="font-size:.85rem;color:var(--dim);font-weight:400">/mo</span></div>
+    <div class="pc feat rev d1">
+      <div class="feat-lbl">Most Popular</div>
+      <div class="pp">Growth</div><div class="pa"><sup>$</sup>349</div><span class="per">one-time setup</span>
+      <div class="pdv"></div>
+      <ul class="pf"><li>Everything in Starter</li><li>Cash flow forecasting (4-week)</li><li>Ad spend vs profit analysis</li><li>Inventory cost monitoring</li><li>Monthly strategy call</li><li>Slack or WhatsApp alerts</li></ul>
+      <div class="pa" style="font-size:1.5rem;margin-bottom:14px"><sup style="font-size:.8rem;color:var(--dim)">$</sup>199<span style="font-size:.8rem;color:var(--dim)">/mo</span></div>
       <a class="by" href="https://calendly.com/musaddiankit/30min" target="_blank" style="width:100%;justify-content:center">Get Started</a>
     </div>
-    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:34px 28px;transition:all .32s" class="rev d2">
-      <div style="font-size:.67rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--y);margin-bottom:11px;font-family:var(--serif)">Scale</div>
-      <div style="font-family:var(--serif);font-size:2.8rem;font-weight:800;letter-spacing:-.03em;line-height:1"><sup style="font-size:1rem;color:var(--dim);font-weight:400;vertical-align:super">$</sup>599</div>
-      <span style="font-size:.77rem;color:var(--dim);display:block;margin:5px 0 18px">one-time setup fee</span>
-      <div style="height:1px;background:var(--border);margin-bottom:18px"></div>
-      <ul style="list-style:none;margin-bottom:26px">
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Everything in Growth</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Multi-channel reporting</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Custom KPI dashboards</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Tax planning &amp; advisory</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Bi-weekly strategy calls</li>
-        <li style="font-size:.85rem;color:var(--dim);padding:5px 0;display:flex;align-items:flex-start;gap:10px"><span style="color:var(--y);font-size:.55rem;margin-top:6px">✦</span>Priority support</li>
-      </ul>
-      <div style="font-family:var(--serif);font-size:1.55rem;font-weight:800;margin-bottom:16px;letter-spacing:-.02em"><sup style="font-size:.85rem;color:var(--dim);font-weight:400">$</sup>399<span style="font-size:.85rem;color:var(--dim);font-weight:400">/mo</span></div>
+    <div class="pc rev d2">
+      <div class="pp">Scale</div><div class="pa"><sup>$</sup>599</div><span class="per">one-time setup</span>
+      <div class="pdv"></div>
+      <ul class="pf"><li>Everything in Growth</li><li>Multi-channel reporting</li><li>Custom KPI dashboards</li><li>Tax planning &amp; advisory</li><li>Bi-weekly strategy calls</li><li>Priority support</li></ul>
+      <div class="pa" style="font-size:1.5rem;margin-bottom:14px"><sup style="font-size:.8rem;color:var(--dim)">$</sup>399<span style="font-size:.8rem;color:var(--dim)">/mo</span></div>
       <a class="by" href="https://calendly.com/musaddiankit/30min" target="_blank" style="width:100%;justify-content:center">Get Started</a>
     </div>
   </div>
 </section>
 
 <!-- FAQ -->
-<section class="faq-bg" id="faq">
+<section style="background:linear-gradient(180deg,var(--bg3) 0%,var(--bg) 100%)" id="faq">
   <div class="ey rev"><div class="ey-l"></div>Questions</div>
   <h2 class="st rev">Frequently <em>asked</em></h2>
-  <div class="flist rev" id="faqList"></div>
+  <div class="flist" id="faqList"></div>
 </section>
 
 <!-- ABOUT -->
-<section class="abt-bg" id="about">
+<section style="background:var(--bg)" id="about">
   <div class="ey rev"><div class="ey-l"></div>Who built this</div>
   <div class="al">
     <div class="at rev">
-      <div style="display:flex;align-items:flex-start;gap:20px;margin-bottom:28px;flex-wrap:wrap">
-        <div class="pw"><img src="data:image/jpeg;base64,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" alt="Ankit Musaddi — Founder, LedgerFlow"></div>
-        <div>
-          <h2 class="st" style="margin-bottom:6px;font-size:clamp(1.5rem,2.5vw,2rem)">Ankit Musaddi<br><em>Founder</em></h2>
-          <p style="margin:0;font-size:.78rem;color:var(--y);font-weight:700;letter-spacing:.08em;font-family:var(--serif)">CA · AI Systems Architect · West Bengal, India</p>
-        </div>
+      <div style="display:flex;align-items:flex-start;gap:18px;margin-bottom:26px;flex-wrap:wrap">
+        <div class="pw"><img src="data:image/jpeg;base64,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" alt="Ankit Musaddi"></div>
+        <div><h2 class="st" style="margin-bottom:5px;font-size:clamp(1.4rem,2.5vw,2rem)">Ankit Musaddi<br><em>Founder</em></h2><p style="margin:0;font-size:.76rem;color:var(--y);font-weight:700;letter-spacing:.08em">CA · AI Systems Architect · West Bengal, India</p></div>
       </div>
       <p>LedgerFlow was founded on a simple observation: the tools to automate finance exist, the AI to power them is ready, but almost nobody with real finance expertise is building with them.</p>
-      <p><strong>Ankit Musaddi</strong> is a Chartered Accountant with a decade of operational business experience — running a family rice processing company taught him what financial pain really looks like from the inside.</p>
-      <p>After returning to CA practice in 2025, he combined that operational instinct with Claude AI, n8n automation, and modern APIs to build systems that replace the manual work most finance teams do every day.</p>
-      <p>LedgerFlow is the result: <strong>a self-evolving intelligent portfolio that converts every system built into a client-ready proof of capability — automatically.</strong></p>
-      <div style="margin-top:28px;display:flex;gap:12px;flex-wrap:wrap">
+      <p><strong>Ankit Musaddi</strong> is a Chartered Accountant with a decade of operational business experience. Running a rice processing company taught him what financial pain really looks like from the inside.</p>
+      <p>LedgerFlow is a self-evolving intelligent portfolio — every system built automatically converts into client-ready proof of capability. The more we build, the stronger the platform becomes.</p>
+      <div style="margin-top:24px;display:flex;gap:11px;flex-wrap:wrap">
         <a class="by" href="https://calendly.com/musaddiankit/30min" target="_blank">Work with LedgerFlow</a>
         <a class="bg" href="https://www.linkedin.com/in/ankit-musaddi-637b943a4" target="_blank">LinkedIn ↗</a>
       </div>
@@ -864,16 +705,16 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
 </section>
 
 <!-- CONTACT -->
-<section class="cont-bg" id="contact" style="background:var(--bg2)">
+<section style="background:var(--bg2)" id="contact">
   <div class="ey rev"><div class="ey-l"></div>Get in touch</div>
   <h2 class="st rev">Start a <em>conversation</em></h2>
   <div class="contl">
-    <div class="ci2 rev">
-      <p>LedgerFlow is actively taking on new clients — Shopify store owners who need financial visibility, businesses with manual processes ready for automation, and agencies looking for a reliable systems partner.</p>
+    <div class="rev">
+      <p>LedgerFlow is actively taking on new clients — Shopify store owners needing financial visibility, businesses ready for automation, and agencies seeking a reliable systems partner.</p>
       <ul class="clinks">
         <li><a href="https://calendly.com/musaddiankit/30min" target="_blank"><span class="cico">📅</span>Book a Free 30-min Strategy Call</a></li>
         <li><a href="https://wa.me/918100362690" target="_blank"><span class="cico">💬</span>WhatsApp: +91 81003 62690</a></li>
-        <li><a href="/cdn-cgi/l/email-protection#58393633312c352d2b393c3c31183f3d2c343d3c3f3d2a3e34372f763b3735"><span class="cico">✉</span><span class="__cf_email__" data-cfemail="0c6d6267657861797f6d6868654c6b69786069686b697e6a60637b226f6361">[email&#160;protected]</span></a></li>
+        <li><a href="mailto:ankitmusaddi@getledgerflow.com"><span class="cico">✉</span>ankitmusaddi@getledgerflow.com</a></li>
         <li><a href="https://www.linkedin.com/in/ankit-musaddi-637b943a4" target="_blank"><span class="cico">in</span>LinkedIn — Ankit Musaddi</a></li>
         <li><a href="https://www.youtube.com/@IndusVault" target="_blank"><span class="cico">▶</span>@IndusVault on YouTube</a></li>
       </ul>
@@ -884,74 +725,47 @@ footer{padding:36px 5vw;border-top:1px solid var(--border);display:flex;align-it
         <div class="fg"><label class="flb">Email</label><input class="fi2" type="email" placeholder="jane@company.com" id="fe"></div>
       </div>
       <div class="fg"><label class="flb">Subject</label><input class="fi2" type="text" placeholder="CFO automation for my Shopify store" id="fs"></div>
-      <div class="fg"><label class="flb">Message</label><textarea class="fta" id="fm" placeholder="Tell us about your business and what you need..."></textarea></div>
+      <div class="fg"><label class="flb">Message</label><textarea class="fta" id="fm" placeholder="Tell us about your business..."></textarea></div>
       <button class="fsub" id="fsb" onclick="sendMsg()">Send Message →</button>
     </div>
   </div>
 </section>
 
 <footer>
-  <div class="flo"><div class="flo-mark">LF</div><span class="flo-text">LedgerFlow</span></div>
+  <div class="flo"><div class="flo-m">LF</div><span class="flo-t">LedgerFlow</span></div>
   <span class="flc">© 2026 LedgerFlow · Ankit Musaddi · West Bengal, India · getledgerflow.com</span>
-  <ul class="fll">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#blog">Blog</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
+  <ul class="fll"><li><a href="#services">Services</a></li><li><a href="#projects">Projects</a></li><li><a href="#blog">Blog</a></li><li><a href="#contact">Contact</a></li></ul>
 </footer>
 
-<!-- AI CHATBOT -->
-<div class="chat-widget">
-  <button class="chat-toggle" id="chatToggle" onclick="toggleChat()" title="Ask LedgerFlow AI">🤖</button>
-  <div class="chat-box" id="chatBox">
-    <div class="chat-head">
-      <div class="chat-ava">🤖</div>
-      <div>
-        <div class="chat-name">LedgerFlow AI</div>
-        <div class="chat-status">Online · Powered by Claude</div>
-      </div>
-    </div>
-    <div class="chat-msgs" id="chatMsgs">
-      <div class="msg bot">Hi! I'm the LedgerFlow AI assistant. I can answer questions about our services, pricing, and help you figure out if we're a good fit. What would you like to know?</div>
-    </div>
-    <div class="chat-input">
-      <input type="text" id="chatIn" placeholder="Ask anything about LedgerFlow..." onkeydown="if(event.key==='Enter')sendChat()">
-      <button class="chat-send" onclick="sendChat()">→</button>
-    </div>
-  </div>
-</div>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-const COLORS={"CFO Insights":"#f0d94a","Automation":"#4ade80","Tools":"#a78bfa","Personal":"#fb923c","Case Study":"#38bdf8"};
-
+<script>
+/* ═══ DATA ═══ */
 const POSTS=[
-  {id:1,title:"How I Built a Fully Automated YouTube Channel Without Writing Code",category:"Automation",date:"March 20, 2026",color:"#4ade80",
-   excerpt:"IndusVault publishes Hindi mystery & history Shorts entirely on autopilot. Here's the full architecture.",
-   content:`<p>Six months ago I had an idea: what if a YouTube channel could run itself completely? Today, <strong>IndusVault</strong> does exactly that — publishing multiple Hindi mystery and history Shorts every week without any manual work beyond one daily Telegram tap.</p><h3>The Full Architecture</h3><p>The system runs on a self-hosted n8n instance, triggered twice daily. GPT-4o generates a Hindi mystery script with scene-by-scene breakdowns. ElevenLabs creates the Hindi voiceover narration. A Node.js renderer with FFmpeg 8.0.1 assembles everything — zoompan animations, transitions, subtitle burns, background music. The finished video lands in Google Drive and a Telegram message fires with APPROVE/REJECT buttons.</p><h3>What This Proves</h3><p>The same architecture that powers IndusVault is now the foundation for LedgerFlow's entire content engine — blog posts, LinkedIn content, and client reporting all run through the same approval-first pipeline. One tap to approve. Zero manual work to publish.</p><p>If you want to build something similar for your business, <a href="https://calendly.com/musaddiankit/30min">book a free call and let's talk architecture.</a></p>`},
-  {id:2,title:"Why Every Shopify Store Over $10k/Month Needs Automated Financial Reports",category:"CFO Insights",date:"March 15, 2026",color:"#f0d94a",
-   excerpt:"Most e-commerce founders know their revenue. Very few know if they're actually profitable.",
-   content:`<p>Here's a pattern I see repeatedly: a Shopify founder is pulling $80,000 in monthly revenue and assumes the business is healthy. Then the bank account doesn't match.</p><h3>The Visibility Gap</h3><p>Most store owners track revenue obsessively. But they're flying blind on true cost of goods sold, real ad profitability after returns and fees, and cash flow timing. A 4x ROAS campaign can still be deeply unprofitable once you stack in returns, COGS, fulfilment costs, and overhead allocations.</p><h3>What Automation Actually Solves</h3><p>Every Monday morning, LedgerFlow's CFO automation delivers a single-page report: net revenue, COGS, gross margin, ad spend breakdown, net profit, and a 4-week cash flow forecast. A margin problem spotted in Week 1 gets fixed in Week 2. The same problem discovered during a quarterly review gets fixed in Week 12, after three months of bleeding.</p><p>Want to see what this looks like for your store? <a href="https://calendly.com/musaddiankit/30min">Book a free 30-minute call.</a></p>`},
-  {id:3,title:"The Self-Evolving Portfolio: How LedgerFlow's Website Updates Itself",category:"Automation",date:"March 10, 2026",color:"#38bdf8",
-   excerpt:"Every system we build automatically documents itself, updates this website, and generates its own marketing content.",
-   content:`<p>Most agencies update their portfolio manually — a task so tedious it rarely happens. LedgerFlow works differently: every system we build updates our portfolio automatically.</p><h3>How It Works</h3><p>When we complete a new automation project, we trigger a webhook. Claude analyses the system — what problem it solves, what the outcome is, who needs it — and generates structured JSON: title, problem, solution, result, category, and build date. That JSON gets pushed to our GitHub repo via API. This website reads it live. A new project card appears without us touching the site.</p><h3>The Same Event Triggers Three More Things</h3><p>A LinkedIn post writes itself about the new project. A blog post generates automatically. And our outreach sequences get updated with a new proof point. One completed project. Four pieces of marketing content. Zero manual work.</p><p>This is what we mean by intelligent systems — not just automating tasks, but automating the communication of capability. <a href="https://calendly.com/musaddiankit/30min">Let's build yours.</a></p>`},
-  {id:4,title:"From CA to AI Systems Architect: The LedgerFlow Origin Story",category:"Personal",date:"February 28, 2026",color:"#fb923c",
-   excerpt:"A decade in rice processing, a CA qualification, then a deep dive into AI. Here's the honest story.",
-   content:`<p>If you'd told me two years ago I'd be building AI-powered finance systems for international clients from West Bengal, I wouldn't have believed you.</p><h3>What a Decade in Business Really Teaches</h3><p>Running a rice processing operation for ten years taught me things no textbook covers. How cash flow problems disguise themselves as revenue problems. How much invisible manual work underpins most small businesses. How the same ten tasks get done every month by hand when a system could do them in minutes.</p><h3>The Moment Everything Changed</h3><p>Returning to CA practice in 2025, I started paying serious attention to what AI and automation could actually do. I built IndusVault — a fully automated YouTube channel — just to prove these systems could work at production quality. They did. And that changed everything.</p><p>LedgerFlow is the firm I wish had existed when I was running operations. Finance expertise and automation capability in the same place. <a href="https://calendly.com/musaddiankit/30min">Let's have a conversation.</a></p>`}
+  {id:1,title:"How I Built a Fully Automated YouTube Channel Without Writing Code",category:"Automation",date:"March 20, 2026",color:"#4ade80",excerpt:"IndusVault publishes Hindi mystery & history Shorts entirely on autopilot. Here's the full architecture.",content:`<p>Six months ago I had an idea: what if a YouTube channel could run itself completely? Today, <strong>IndusVault</strong> does exactly that.</p><h3>The Full Architecture</h3><p>The system runs on self-hosted n8n. GPT-4o generates scripts. ElevenLabs creates voiceover. FFmpeg assembles everything. The finished video lands in Google Drive and a Telegram message fires with APPROVE/REJECT buttons. One tap — published to YouTube automatically.</p><h3>What This Proves</h3><p>The same architecture powers LedgerFlow's entire content engine. One tap to approve. Zero manual work to publish.</p><p>If you want to build something similar, <a href="https://calendly.com/musaddiankit/30min">book a free call.</a></p>`},
+  {id:2,title:"Why Every Shopify Store Over $10k/Month Needs Automated Financial Reports",category:"CFO Insights",date:"March 15, 2026",color:"#f0d94a",excerpt:"Most founders know their revenue. Very few know if they're actually profitable.",content:`<p>A Shopify founder pulling $80k/month assumes the business is healthy. Then the bank account doesn't match.</p><h3>The Visibility Gap</h3><p>Most store owners track revenue obsessively but fly blind on true COGS, real ad profitability after returns, and cash flow timing. A 4x ROAS campaign can be deeply unprofitable once you add returns, COGS, and overhead.</p><h3>What Automation Solves</h3><p>Every Monday morning: net revenue, COGS, gross margin, ad spend breakdown, net profit, and 4-week cash flow forecast. A margin problem spotted in Week 1 gets fixed in Week 2. Spotted in a quarterly review — you've bled for 12 weeks.</p><p><a href="https://calendly.com/musaddiankit/30min">Book a free 30-minute call to see this for your store.</a></p>`},
+  {id:3,title:"The Self-Evolving Portfolio: How This Website Updates Itself",category:"Automation",date:"March 10, 2026",color:"#38bdf8",excerpt:"Every system we build automatically documents itself, updates this website, and generates marketing content.",content:`<p>Most agencies update their portfolio manually — a task so tedious it rarely happens. LedgerFlow works differently.</p><h3>How It Works</h3><p>When we complete a new project, we trigger a webhook. Claude analyses the system — problem, solution, outcome, category — and generates structured JSON. That JSON pushes to GitHub via API. This website reads it live. A new project card appears automatically.</p><h3>The Same Event Triggers Three More Things</h3><p>A LinkedIn post writes itself. A blog post generates automatically. Outreach sequences update with a new proof point. One completed project. Four pieces of content. Zero manual work.</p><p><a href="https://calendly.com/musaddiankit/30min">Let's build yours.</a></p>`},
+  {id:4,title:"From CA to AI Systems Architect: The LedgerFlow Origin Story",category:"Personal",date:"February 28, 2026",color:"#fb923c",excerpt:"A decade in rice processing, a CA qualification, then a deep dive into AI. Here's the honest story.",content:`<p>If you'd told me two years ago I'd be building AI-powered finance systems for international clients from West Bengal, I wouldn't have believed you.</p><h3>What a Decade in Business Really Teaches</h3><p>Running a rice processing operation taught me things no textbook covers. How cash flow problems disguise themselves as revenue problems. How much invisible manual work underpins most small businesses.</p><h3>The Moment Everything Changed</h3><p>Returning to CA practice in 2025, I built IndusVault — a fully automated YouTube channel — just to prove these systems could work at production quality. They did. That changed everything.</p><p>LedgerFlow is the firm I wish had existed when I was running operations. <a href="https://calendly.com/musaddiankit/30min">Let's have a conversation.</a></p>`}
 ];
 
 const FAQS=[
-  {q:"Do you work with clients outside India?",a:"Yes — that's the primary focus. All LedgerFlow services are designed for global clients, particularly in the US, UK, Canada, and Australia. Everything runs remotely via email, Zoom, and Slack. Pricing is in USD for international clients."},
-  {q:"What does the CFO service setup process look like?",a:"After a discovery call, we need read-only API access to your Shopify store. Setup takes 3–5 business days. Your first automated report arrives within the first week, then every Monday morning automatically. No ongoing work required from your side."},
-  {q:"How is pricing structured?",a:"A one-time setup fee covers building and configuring the full automation for your store. The monthly retainer covers ongoing delivery, maintenance, system updates, and support. No hidden fees, no lock-in — cancel anytime."},
-  {q:"I'm not technical at all — can I still use your services?",a:"Absolutely. You'll never touch a formula, an API, or a spreadsheet. Everything is configured by us and delivered to your inbox. You just read the report and make decisions."},
-  {q:"What is the AI chatbot service?",a:"We build conversational AI assistants that handle customer queries, qualify leads, book appointments, and escalate to humans intelligently. They work on websites, WhatsApp, and Telegram. Built on large language models with custom training on your business context."},
-  {q:"Do you build custom automation beyond the CFO service?",a:"Yes. If you have a repetitive process costing your team time — lead capture, invoice processing, reporting, notifications, content publishing — we can automate it with n8n. Book a call and describe the problem."},
-  {q:"Are you available for CA and accounting work?",a:"Yes. Ankit is a practising CA with QBO ProAdvisor certification. LedgerFlow takes on cloud accounting setup, GST compliance, financial planning, and ongoing CA advisory alongside automation work."}
+  {q:"Do you work with clients outside India?",a:"Yes — that's the primary focus. All services are designed for global clients in the US, UK, Canada, and Australia. Everything runs remotely. Pricing is in USD for international clients."},
+  {q:"What does the CFO service setup look like?",a:"After a discovery call, we need read-only API access to your Shopify store. Setup takes 3–5 business days. Your first report arrives within the first week, then every Monday morning automatically."},
+  {q:"How is pricing structured?",a:"A one-time setup fee covers building the full automation. The monthly retainer covers ongoing delivery, maintenance, updates, and support. No hidden fees, no lock-in — cancel anytime."},
+  {q:"I'm not technical — can I still use your services?",a:"Absolutely. You'll never touch a formula or API. Everything is configured by us and delivered to your inbox. You just read the report and make decisions."},
+  {q:"What is the AI chatbot service?",a:"We build conversational AI assistants that handle queries, qualify leads, book appointments, and escalate to humans. They work on websites, WhatsApp, and Telegram — built on large language models with custom business context."},
+  {q:"Do you build custom automations beyond CFO?",a:"Yes. If you have a repetitive process costing time — lead capture, invoicing, reporting, content publishing — we can automate it with n8n. Book a call and describe the problem."},
+  {q:"Are you available for CA and accounting work?",a:"Yes. Ankit is a practising CA with QBO ProAdvisor certification. LedgerFlow takes on cloud accounting, GST compliance, financial planning, and CA advisory alongside automation work."}
 ];
 
-/* BLOG */
+const CHAT_CONTEXT=`You are the LedgerFlow AI assistant. LedgerFlow is an AI-powered finance systems firm founded by Ankit Musaddi, a Chartered Accountant from West Bengal, India.
+Services: CFO-as-a-Service for Shopify, n8n workflow automation, AI chatbot development, finance process automation, CA & QBO advisory, AI content systems.
+Pricing: Starter ($199 setup + $99/mo), Growth ($349 setup + $199/mo), Scale ($599 setup + $399/mo). Custom projects — book a call.
+Book a call: https://calendly.com/musaddiankit/30min | WhatsApp: https://wa.me/918100362690 | Email: ankitmusaddi@getledgerflow.com
+Be helpful, concise, and professional. Suggest booking a call for serious enquiries.`;
+
+/* ═══ BLOG ═══ */
 function renderBlog(){
   const g=document.getElementById('blogGrid');
+  if(!g)return;
   POSTS.forEach((p,i)=>{
     const d=i%3===1?' d1':i%3===2?' d2':'';
     const c=document.createElement('div');
@@ -960,10 +774,11 @@ function renderBlog(){
     c.innerHTML=`<div class="bt" style="background:${p.color}"></div><div class="bb"><div class="bm"><span class="bcat" style="background:${p.color}">${p.category}</span><span class="bdate">${p.date}</span></div><div class="btl">${p.title}</div><div class="bex">${p.excerpt}</div><div class="brd">Read article</div></div>`;
     g.appendChild(c);
   });
-  observeReveal();
 }
+
 function openModal(id){
-  const p=POSTS.find(x=>x.id===id);if(!p)return;
+  const p=POSTS.find(x=>x.id===id);
+  if(!p)return;
   document.getElementById('mCat').textContent=p.category;
   document.getElementById('mTitle').textContent=p.title;
   document.getElementById('mDate').textContent=p.date;
@@ -971,86 +786,135 @@ function openModal(id){
   document.getElementById('modal').classList.add('open');
   document.body.style.overflow='hidden';
 }
-function closeModal(){document.getElementById('modal').classList.remove('open');document.body.style.overflow='';}
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+  document.body.style.overflow='';
+}
 
-/* FAQ */
+/* ═══ FAQ ═══ */
 function renderFAQ(){
   const l=document.getElementById('faqList');
+  if(!l)return;
   FAQS.forEach(f=>{
-    const d=document.createElement('div');d.className='fi';
+    const d=document.createElement('div');
+    d.className='fi';
     d.innerHTML=`<button class="fq" onclick="tFaq(this)">${f.q}<span class="fic">+</span></button><div class="fa"><div class="fai">${f.a}</div></div>`;
     l.appendChild(d);
   });
 }
 function tFaq(btn){
-  const item=btn.closest('.fi'),ans=item.querySelector('.fa'),inner=item.querySelector('.fai'),isOpen=item.classList.contains('open');
-  document.querySelectorAll('.fi.open').forEach(el=>{el.classList.remove('open');el.querySelector('.fa').style.maxHeight='0'});
-  if(!isOpen){item.classList.add('open');ans.style.maxHeight=inner.scrollHeight+'px';}
+  const item=btn.closest('.fi');
+  const ans=item.querySelector('.fa');
+  const inner=item.querySelector('.fai');
+  const isOpen=item.classList.contains('open');
+  document.querySelectorAll('.fi.open').forEach(el=>{
+    el.classList.remove('open');
+    el.querySelector('.fa').style.maxHeight='0';
+  });
+  if(!isOpen){
+    item.classList.add('open');
+    ans.style.maxHeight=inner.scrollHeight+'px';
+  }
 }
 
-/* TYPEWRITER */
+/* ═══ TYPEWRITER ═══ */
 const roles=['Finance OS.','CFO Automation.','n8n Agency.','AI Chatbots.','Smart Reporting.'];
 let ri=0,ci=0,del=false;
 function type(){
-  const el=document.getElementById('tw');if(!el)return;
+  const el=document.getElementById('tw');
+  if(!el)return;
   const w=roles[ri];
-  if(!del){el.textContent=w.slice(0,++ci);if(ci===w.length){del=true;setTimeout(type,2200);return;}}
-  else{el.textContent=w.slice(0,--ci);if(ci===0){del=false;ri=(ri+1)%roles.length;setTimeout(type,400);return;}}
+  if(!del){
+    el.textContent=w.slice(0,++ci);
+    if(ci===w.length){del=true;setTimeout(type,2200);return;}
+  } else {
+    el.textContent=w.slice(0,--ci);
+    if(ci===0){del=false;ri=(ri+1)%roles.length;setTimeout(type,400);return;}
+  }
   setTimeout(type,del?46:85);
 }
 setTimeout(type,1800);
 
-/* COUNTERS */
+/* ═══ COUNTERS ═══ */
+let counted=false;
 function runCounters(){
+  if(counted)return;
+  counted=true;
   document.querySelectorAll('[data-t]').forEach(el=>{
     const t=+el.dataset.t,s=el.dataset.s||'',dur=1500,step=16;
-    let c=0;const inc=t/(dur/step);
-    const iv=setInterval(()=>{c=Math.min(c+inc,t);el.textContent=Math.floor(c)+s;if(c>=t){el.textContent=t+s;clearInterval(iv);}},step);
+    let c=0;
+    const inc=t/(dur/step);
+    const iv=setInterval(()=>{
+      c=Math.min(c+inc,t);
+      el.textContent=Math.floor(c)+s;
+      if(c>=t){el.textContent=t+s;clearInterval(iv);}
+    },step);
   });
 }
-let counted=false;
 
-/* REVEAL */
-function observeReveal(){
-  const items=document.querySelectorAll('.rev:not(.obs)');
+/* ═══ REVEAL ═══ */
+function initReveal(){
+  const items=document.querySelectorAll('.rev');
+  if(!items.length)return;
   const obs=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
         e.target.classList.add('in');
-        if(!counted&&e.target.closest('.sband')){counted=true;runCounters();}
+        if(e.target.closest('.sband'))runCounters();
         obs.unobserve(e.target);
       }
     });
-  },{threshold:.07});
-  items.forEach(el=>{el.classList.add("obs","animated");obs.observe(el);});
+  },{threshold:.06,rootMargin:'0px 0px -40px 0px'});
+  items.forEach(el=>obs.observe(el));
+  // Fallback: show all after 2.5s
+  setTimeout(()=>{
+    document.querySelectorAll('.rev:not(.in)').forEach(el=>el.classList.add('in'));
+    runCounters();
+  },2500);
 }
 
-/* SCROLL */
+/* ═══ SCROLL ═══ */
 window.addEventListener('scroll',()=>{
-  const nav=document.getElementById('nav');
-  nav.classList.toggle('scrolled',scrollY>60);
+  document.getElementById('nav').classList.toggle('scrolled',scrollY>60);
   const h=document.documentElement.scrollHeight-innerHeight;
-  document.getElementById('prog').style.width=(scrollY/h*100)+'%';
-  const show=scrollY>400;
-  document.getElementById('fbtn').classList.toggle('show',show);
-  document.getElementById('wa').classList.toggle('show',show);
-  document.getElementById('chatToggle').classList.toggle('show',show);
+  if(h>0)document.getElementById('prog').style.width=(scrollY/h*100)+'%';
 },{passive:true});
 
-/* NAV */
-function tm(){document.getElementById('hbg').classList.toggle('open');document.getElementById('mmenu').classList.toggle('open');document.body.style.overflow=document.getElementById('mmenu').classList.contains('open')?'hidden':'';}
-function cm(){document.getElementById('hbg').classList.remove('open');document.getElementById('mmenu').classList.remove('open');document.body.style.overflow='';}
+/* ═══ NAV ═══ */
+function tm(){
+  document.getElementById('hbg').classList.toggle('open');
+  document.getElementById('mmenu').classList.toggle('open');
+  document.body.style.overflow=document.getElementById('mmenu').classList.contains('open')?'hidden':'';
+}
+function cm(){
+  document.getElementById('hbg').classList.remove('open');
+  document.getElementById('mmenu').classList.remove('open');
+  document.body.style.overflow='';
+}
 
-/* SMOOTH SCROLL */
+/* ═══ SMOOTH SCROLL ═══ */
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}});
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+  });
 });
 
-/* FORM */
+/* ═══ FORM ═══ */
 async function sendMsg(){
-  const n=document.getElementById('fn').value.trim(),e=document.getElementById('fe').value.trim(),s=document.getElementById('fs').value.trim(),m=document.getElementById('fm').value.trim(),btn=document.getElementById('fsb');
-  if(!n||!e||!m){btn.textContent='Please fill all fields';btn.style.background='#555';setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';},2500);return;}
-  btn.textContent='Sending...';btn.disabled=true;
+  const n=document.getElementById('fn').value.trim();
+  const e=document.getElementById('fe').value.trim();
+  const s=document.getElementById('fs').value.trim();
+  const m=document.getElementById('fm').value.trim();
+  const btn=document.getElementById('fsb');
+  if(!n||!e||!m){
+    btn.textContent='Please fill all fields';
+    btn.style.background='#555';
+    setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';},2500);
+    return;
+  }
+  btn.textContent='Sending...';
+  btn.disabled=true;
   try{
     const r=await fetch('https://formspree.io/f/xbdpdapj',{
       method:'POST',
@@ -1058,70 +922,82 @@ async function sendMsg(){
       body:JSON.stringify({name:n,email:e,subject:s||'LedgerFlow Enquiry',message:m})
     });
     if(r.ok){
-      btn.textContent='✅ Message sent!';btn.style.background='#4ade80';
-      document.getElementById('fn').value='';document.getElementById('fe').value='';document.getElementById('fs').value='';document.getElementById('fm').value='';
+      btn.textContent='✅ Message sent!';
+      btn.style.background='#4ade80';
+      ['fn','fe','fs','fm'].forEach(id=>document.getElementById(id).value='');
       setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false;},4000);
     } else {
-      btn.textContent='Failed — try WhatsApp';btn.style.background='#f87171';
-      setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false;},3000);
+      throw new Error('Failed');
     }
-  }catch(err){
-    btn.textContent='Failed — try WhatsApp';btn.style.background='#f87171';
+  }catch{
+    btn.textContent='Try WhatsApp instead';
+    btn.style.background='#f87171';
     setTimeout(()=>{btn.textContent='Send Message →';btn.style.background='';btn.disabled=false;},3000);
   }
 }
 
-/* CHATBOT */
-const CONTEXT=`You are the LedgerFlow AI assistant. LedgerFlow is an AI-powered finance systems firm founded by Ankit Musaddi, a Chartered Accountant from West Bengal, India. 
-
-Services: CFO-as-a-Service for Shopify ($99-399/month + setup fee), n8n workflow automation, AI chatbot development, finance process automation, CA & QBO advisory, AI content systems.
-
-Pricing: Starter ($199 setup + $99/mo), Growth ($349 setup + $199/mo), Scale ($599 setup + $399/mo). Custom projects - book a call.
-
-Book a call: https://calendly.com/musaddiankit/30min
-WhatsApp: https://wa.me/918100362690
-Email: ankitmusaddi@getledgerflow.com
-
-Be helpful, concise, and professional. If someone seems interested in a service, suggest booking a call. Never make up information not provided here.`;
-
-let chatHistory=[];
+/* ═══ CHATBOT ═══ */
 let chatOpen=false;
+let chatHistory=[];
 
-function toggleChat(){chatOpen=!chatOpen;document.getElementById('chatBox').classList.toggle('open',chatOpen);}
-function openChat(){chatOpen=true;document.getElementById('chatBox').classList.add('open');}
+function toggleChat(){
+  chatOpen=!chatOpen;
+  document.getElementById('chatBox').classList.toggle('open',chatOpen);
+}
+function openChat(){
+  chatOpen=true;
+  document.getElementById('chatBox').classList.add('open');
+  document.getElementById('chatIn').focus();
+}
 
 async function sendChat(){
   const input=document.getElementById('chatIn');
-  const msg=input.value.trim();if(!msg)return;
+  const msg=input.value.trim();
+  if(!msg)return;
   input.value='';
   addMsg(msg,'user');
   chatHistory.push({role:'user',content:msg});
-  const typing=addMsg('','typing');
+  const typing=addTyping();
   try{
     const r=await fetch('/api/chat',{
       method:'POST',
       headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        model:'claude-sonnet-4-20250514',
-        max_tokens:400,
-        system:CONTEXT,
-        messages:chatHistory
-      })
+      body:JSON.stringify({messages:chatHistory})
     });
     const d=await r.json();
-    const reply=d.content?.[0]?.text||"I'm having trouble connecting. Please try WhatsApp or email instead.";
+    const reply=d.reply||"I'm having trouble. Please try WhatsApp or email.";
     typing.remove();
     addMsg(reply,'bot');
     chatHistory.push({role:'assistant',content:reply});
-  }catch(e){
+  }catch{
     typing.remove();
-    addMsg("Sorry, I'm having connection issues. Please reach out via WhatsApp or email directly.",'bot');
+    addMsg("Connection issue. Please reach out via WhatsApp or email directly.",'bot');
   }
 }
 
 function addMsg(text,type){
   const msgs=document.getElementById('chatMsgs');
   const div=document.createElement('div');
-  if(type==='typing'){
-    div.className='msg bot typing';
-    div.innerHTML='<div class="tdot"></div><div c
+  div.className=`msg ${type}`;
+  div.textContent=text;
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+  return div;
+}
+function addTyping(){
+  const msgs=document.getElementById('chatMsgs');
+  const div=document.createElement('div');
+  div.className='msg typing';
+  div.innerHTML='<div class="tdot"></div><div class="tdot"></div><div class="tdot"></div>';
+  msgs.appendChild(div);
+  msgs.scrollTop=msgs.scrollHeight;
+  return div;
+}
+
+/* ═══ INIT ═══ */
+renderBlog();
+renderFAQ();
+initReveal();
+</script>
+</body>
+</html>
